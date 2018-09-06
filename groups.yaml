@@ -1,0 +1,34 @@
+outdoors_lights:
+  name: Outdoors Lights
+  entities:
+    - switch.garden_spots
+    - switch.entrance_light
+    - switch.parking_light    
+
+kitchen:
+  name: Kitchen Lights
+  entities:
+    - switch.kitchen_chandelier
+    - switch.kitchen_led_bar
+    - switch.kitchen_spots 
+
+lg_television_controls:
+  name: LG Television Controls
+  entities:
+    - switch.lg_tv  
+    - switch.lg_tv_select_kodi
+    - switch.lg_tv_select_yes
+    - switch.lg_tv_turn_volume_up
+    - switch.lg_tv_turn_volume_down
+    - switch.lg_tv_set_volume_mute
+
+samsung_television_controls:
+  name: Samsung Television Controls
+  entities:
+    - switch.bedroom_tv
+    - switch.bedroom_tv_select_kodi
+    - switch.bedroom_tv_select_yes
+    - switch.bedroom_tv_turn_volume_up
+    - switch.bedroom_tv_turn_volume_down
+    - switch.bedroom_tv_set_volume_mute
+

@@ -1,0 +1,19 @@
+- platform: broadlink
+  name: fireplace_rm2pro
+  host: 192.168.0.124
+  mac: '34:EA:34:B5:46:61'  
+  monitored_conditions:
+    - 'temperature'
+
+- platform: broadlink
+  name: bedroom_rm2pro
+  host: 192.168.0.122
+  mac: '34:EA:34:C7:31:F9'
+  monitored_conditions:
+    - 'temperature'
+
+#- platform: broadlinkpower
+#  name: bedroom_blanket_power
+#  host: 192.168.0.138
+#  mac: '34:EA:34:B5:46:61'
+

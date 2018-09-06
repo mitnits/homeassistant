@@ -1,0 +1,40 @@
+- platform: broadlink
+  name: AC
+  host: 192.168.0.124
+  mac: '34:EA:34:B5:46:61'      
+  ircodes_ini: 'broadlink_climate_codes/tadiran.ini'
+  min_temp: 18
+  max_temp: 30
+  target_temp: 24
+  temp_sensor: sensor.fireplace_rm2pro_temperature
+  default_operation: 'cool'
+  default_fan_mode: low
+  customize:
+    operations:
+      - cool
+      - heat
+    fan_modes:
+      - low
+      - mid
+      - high
+      - auto
+- platform: broadlink
+  name: BedroomAC
+  host: 192.168.0.122
+  mac: '34:EA:34:C7:31:F9'      
+  ircodes_ini: 'broadlink_climate_codes/gree.ini'
+  min_temp: 18
+  max_temp: 28
+  target_temp: 25
+  temp_sensor: sensor.bedroom_rm2pro_temperature
+  default_operation: 'cool'
+  default_fan_mode: low
+  customize:
+    operations:
+      - cool
+      - heat
+    fan_modes:
+      - low
+      - mid
+      - high
+      - auto

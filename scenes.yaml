@@ -1,0 +1,19 @@
+- name: Kitchen On
+  entities:
+    switch.kitchen_chandelier: on
+    switch.kitchen_led_bar: on
+    switch.kitchen_spots: on
+- name: Kitchen Off
+  entities:
+    switch.kitchen_chandelier: off
+    switch.kitchen_led_bar: off
+    switch.kitchen_spots: off
+- name: Living Room On
+  entities:
+    switch.living_room_spots: on
+    switch.led_bar: on
+- name: Living Room Off
+  entities:
+    switch.living_room_spots: off
+    switch.led_bar: off
+

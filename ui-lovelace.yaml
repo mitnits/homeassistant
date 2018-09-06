@@ -1,0 +1,145 @@
+title: Roman's Home
+views:
+  - title: Home
+    cards:
+      - type: picture-entity
+        title: Living Room Camera
+        entity: camera.living_room_camera
+        camera_image: camera.living_room_camera
+        show_info: true
+        tap_action: dialog
+
+#      - type: media-control
+#        entity: media_player.googlehome9043
+
+#      - type: media-control
+#        entity: media_player.living_room
+
+#      - type: media-control
+#        entity: media_player.tv
+
+#      - type: media-control
+#        entity: media_player.white_room
+
+      - type: entities
+        title: Climate Control
+        show_header_toggle: false
+        entities:
+          - climate.ac
+          - climate.bedroomac
+
+#      - type: entities
+#        title: Groups
+#        show_header_toggle: true
+#        entities:
+#          - group.all_automations
+#          - group.all_switches
+#          - group.blinds
+#          - group.dining_area
+#          - group.downstairs_tv_group
+#          - group.kitchen
+#          - group.lg_television_controls
+#          - group.living_room
+#          - group.outdoors_lights
+#          - group.samsung_television_controls
+
+#      - type: entities
+#        title: Scenes
+#        show_header_toggle: true
+#        entities:
+#          - scene.kitchen_off
+#          - scene.kitchen_on
+
+      - type: entities
+        title: Sensors
+        show_header_toggle: false
+        entities:
+          - sensor.bedroom_rm2pro_temperature
+          - sensor.fireplace_rm2pro_temperature
+          - sun.sun
+  
+      - type: glance
+        title: Bedroom TV
+        show_header_toggle: False
+        show_state: false
+        show_name: false
+        tap_action: toggle
+        column_width: calc(100% / 3)
+        entities:
+          - entity: switch.bedroom_tv
+            tap_action: toggle
+          - entity: switch.bedroom_tv_select_kodi
+            tap_action: toggle
+          - entity: switch.bedroom_tv_select_yes
+            tap_action: toggle
+          - entity: switch.bedroom_tv_set_volume_mute
+            tap_action: toggle
+          - entity: switch.bedroom_tv_turn_volume_down
+            tap_action: toggle
+          - entity: switch.bedroom_tv_turn_volume_up
+            tap_action: toggle
+
+      - type: glance
+        title: Living Room TV
+        show_header_toggle: False
+        show_name: false
+        show_state: false
+        tap_action: toggle
+        column_width: calc(100% / 3)
+        entities:
+          - entity: switch.lg_tv
+            tap_action: toggle
+          - entity: switch.lg_tv_select_kodi
+            tap_action: toggle
+          - entity: switch.lg_tv_select_yes
+            tap_action: toggle
+          - entity: switch.lg_tv_set_volume_mute
+            tap_action: toggle
+          - entity: switch.lg_tv_turn_volume_down
+            tap_action: toggle
+          - entity: switch.lg_tv_turn_volume_up
+            tap_action: toggle
+      - type: entities
+        title: Kitchen
+        show_header_toggle: True
+        entities:
+          - switch.kitchen_chandelier
+          - switch.kitchen_led_bar
+          - switch.kitchen_spots
+
+      - type: entities
+        title: Living room
+        show_header_toggle: False
+        entities:
+          - switch.living_room_spots
+          - switch.led_bar
+
+      - type: entities
+        title: Blinds
+        show_header_toggle: True
+        entities:
+          - switch.garden_blinds
+          - switch.kitchen_blinds
+          - switch.street_blinds
+
+      - type: entities
+        title: Dining Table
+        show_header_toggle: True
+        entities:
+          - switch.dining_table_light
+          - switch.entrance_spots
+
+
+      - type: glance
+        tap_action: toggle
+        title: Switches
+        show_header_toggle: False
+        entities:
+          - switch.bedroom_ac
+          - switch.downstairs_ac
+          - switch.fireplace
+          - switch.blanket
+#          - switch.garden_spots
+#          - switch.parking_light
+          - switch.roomba
+#          - switch.toilet_light

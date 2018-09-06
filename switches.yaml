@@ -1,0 +1,286 @@
+- platform: command_line
+  switches:
+    dining_table_light:
+      command_on: '/home/homeassistant/scripts/dining_table_light_on'
+      command_off: '/home/homeassistant/scripts/dining_table_light_off'
+      friendly_name: 'Dining Table Light'
+    entrance_light:
+      command_on: '/home/homeassistant/scripts/entrance_light_on'
+      command_off: '/home/homeassistant/scripts/entrance_light_off'
+      friendly_name: 'Outside Entrance Lamp'
+    entrance_spots:
+      command_on: '/home/homeassistant/scripts/entrance_spots_on'
+      command_off: '/home/homeassistant/scripts/entrance_spots_off'
+      friendly_name: 'Entrance Light'
+    garden_spots:
+      command_on: '/home/homeassistant/scripts/garden_spots_on'
+      command_off: '/home/homeassistant/scripts/garden_spots_off'
+      friendly_name: 'Outside Garden Light'
+    kitchen_chandelier:
+      command_on: '/home/homeassistant/scripts/kitchen_chandelier_on'
+      command_off: '/home/homeassistant/scripts/kitchen_chandelier_off'
+      friendly_name: 'Chandelier'
+    kitchen_led_bar:
+      command_on: '/home/homeassistant/scripts/kitchen_led_bar_on'
+      command_off: '/home/homeassistant/scripts/kitchen_led_bar_off'
+      friendly_name: 'Fridge Light'
+    kitchen_spots:
+      command_on: '/home/homeassistant/scripts/kitchen_spots_on'
+      command_off: '/home/homeassistant/scripts/kitchen_spots_off'
+      friendly_name: 'Countertop Light'
+    led_bar:
+      command_on: '/home/homeassistant/scripts/led_bar_on'
+      command_off: '/home/homeassistant/scripts/led_bar_off'
+      friendly_name: 'Light above the fireplace'
+    left_spot_rail:
+      command_on: '/home/homeassistant/scripts/left_spot_rail_on'
+      command_off: '/home/homeassistant/scripts/left_spot_rail_off'
+    right_spot_rail:
+      command_on: '/home/homeassistant/scripts/right_spot_rail_on'
+      command_off: '/home/homeassistant/scripts/right_spot_rail_off'
+    living_room_spots:
+      command_on: '/home/homeassistant/scripts/living_room_spots_on'
+      command_off: '/home/homeassistant/scripts/living_room_spots_off'
+      friendly_name: 'Living Room Spots'
+    parking_light:
+      command_on: '/home/homeassistant/scripts/parking_light_on'
+      command_off: '/home/homeassistant/scripts/parking_light_off'
+      friendly_name: 'Outside parking light'
+    toilet_light:
+      command_on: '/home/homeassistant/scripts/toilet_light_on'
+      command_off: '/home/homeassistant/scripts/toilet_light_off'
+      friendly_name: 'Toilet Light'
+    kitchen_blinds:
+      command_on: '/home/homeassistant/scripts/kitchen_blinds_on'
+      command_off: '/home/homeassistant/scripts/kitchen_blinds_off'
+      friendly_name: 'Patio Blinds'
+    garden_blinds:
+      command_on: '/home/homeassistant/scripts/garden_blinds_on'
+      command_off: '/home/homeassistant/scripts/garden_blinds_off'
+      friendly_name: 'Garden Blinds'
+    street_blinds:
+      command_on: '/home/homeassistant/scripts/street_blinds_on'
+      command_off: '/home/homeassistant/scripts/street_blinds_off'
+      friendly_name: 'Street Blinds'
+    roomba:
+      command_on: '/home/homeassistant/scripts/roomba_on'
+    bedroom_tv:
+      command_on: '/home/homeassistant/scripts/bedroom_tv_on'
+      command_off: '/home/homeassistant/scripts/bedroom_tv_off'
+      command_state: '/bin/ping -c 1 192.168.0.131 -W 2'
+      friendly_name: 'Bedroom TV'
+
+
+- platform: template
+  switches:
+    lg_tv_turn_volume_up:
+      friendly_name: 'LG TV Volume+'
+      value_template: "false"
+      turn_on:
+        service: switch.turn_on
+        entity_id: switch.lg_tv_volume_up
+      turn_off:
+      icon_template: mdi:volume-high
+    lg_tv_turn_volume_down:
+      friendly_name: 'LG TV Volume-'
+      value_template: "false"
+      turn_on:
+        service: switch.turn_on
+        entity_id: switch.lg_tv_volume_down
+      turn_off:
+      icon_template: mdi:volume-medium
+    lg_tv_set_volume_mute:
+      friendly_name: 'LG TV Mute'
+      value_template: "false"
+      turn_on:
+        service: switch.turn_on
+        entity_id: switch.lg_tv_volume_mute
+      turn_off:
+      icon_template: mdi:volume-off        
+    lg_tv_select_yes:
+      friendly_name: 'LG TV Select Yes'
+      value_template: "false"
+      turn_on:
+        service: switch.turn_on
+        entity_id: switch.lg_tv_yes
+      turn_off:
+      icon_template: mdi:satellite-variant
+    lg_tv_select_kodi:
+      friendly_name: 'LG TV Select KODI'
+      value_template: "false"
+      turn_on:
+        service: switch.turn_on
+        entity_id: switch.lg_tv_kodi
+      turn_off:
+      icon_template: mdi:television-guide
+    bedroom_tv_turn_volume_up:
+      friendly_name: 'Bedroom TV Volume+'
+      value_template: "false"
+      turn_on:
+        service: switch.turn_on
+        entity_id: switch.bedroom_tv_volume_up
+      turn_off:
+      icon_template: mdi:volume-high
+    bedroom_tv_turn_volume_down:
+      friendly_name: 'Bedroom TV Volume-'
+      value_template: "false"
+      turn_on:
+        service: switch.turn_on
+        entity_id: switch.bedroom_tv_volume_down
+      turn_off:
+      icon_template: mdi:volume-medium
+    bedroom_tv_set_volume_mute:
+      friendly_name: 'Bedroom TV Mute'
+      value_template: "false"
+      turn_on:
+        service: switch.turn_on
+        entity_id: switch.bedroom_tv_volume_mute
+      turn_off:
+      icon_template: mdi:volume-off
+    bedroom_tv_select_yes:
+      friendly_name: 'Bedroom TV Select Yes'
+      value_template: "false"
+      turn_on:
+        service: switch.turn_on
+        entity_id: switch.bedroom_tv_yes
+      turn_off:
+      icon_template: mdi:satellite-variant
+    bedroom_tv_select_kodi:
+      friendly_name: 'Bedroom TV Select KODI'
+      value_template: "false"
+      turn_on:
+        service: switch.turn_on
+        entity_id: switch.bedroom_tv_kodi
+      turn_off:
+      icon_template: mdi:television-guide
+    fireplace:
+      friendly_name: 'Fireplace'
+      value_template: "{{ is_state('switch.fireplace_switch', 'on') }}"
+      turn_on:
+        service: switch.turn_on
+        entity_id: switch.fireplace_switch
+      turn_off:
+        service: switch.turn_off
+        entity_id: switch.fireplace_switch
+      icon_template: mdi:fire
+
+    lg_tv:
+      friendly_name: 'LG TV'
+      value_template: "{{ not is_state('media_player.TV', 'off') }}"
+      turn_on:
+        service: media_player.turn_on
+        entity_id: media_player.TV
+      turn_off:
+        service: media_player.turn_off
+        entity_id: media_player.TV
+
+
+    bedroom_ac:
+      friendly_name: 'Bedroom CC for Alexa'
+      value_template: "{{ not is_state('climate.bedroomac', 'off') }}"
+      turn_on:
+        service: climate.turn_on
+        entity_id: climate.bedroomac
+      turn_off:
+        service: climate.turn_off
+        entity_id: climate.bedroomac
+      icon_template: >-
+        {% if is_state('climate.bedroomac', 'cool') %}
+          mdi:snowflake
+        {% elif is_state('climate.bedroomac', 'heat') %}
+          mdi:white-balance-sunny
+        {% else %}
+          mdi:checkbox-blank-circle-outline
+        {% endif %}
+
+    downstairs_ac:
+      friendly_name: 'Downstairs CC for Alexa'
+      value_template: "{{ not is_state('climate.ac', 'off') }}"
+      turn_on:
+        service: climate.turn_on
+        entity_id: climate.ac
+      turn_off:
+        service: climate.turn_off
+        entity_id: climate.ac
+      icon_template: >-
+        {% if is_state('climate.ac', 'cool') %}
+          mdi:snowflake
+        {% elif is_state('climate.ac', 'heat') %}
+          mdi:white-balance-sunny
+        {% else %}
+          mdi:checkbox-blank-circle-outline  
+        {% endif %}
+
+
+- platform: broadlink
+  friendly_name: 'Bedroom RM2'
+  host: 192.168.0.122
+  mac: '34:EA:34:C7:31:F9'
+  timeout: 15
+  type: rm2_pro_plus2
+  switches: 
+    bedroom_tv_yes:
+      friendly_name: 'BEDROOM TV YES'
+      command_on: 'JgBGAJSUEjcSNxI3EhISEhISEhISEhI3EjcSNxISEhISEhISEhISEhI3EjcSNxI3EjcSEhI3EjcSEhISEhISEhISEjcSEhIABaQNBQ=='
+    bedroom_tv_kodi:
+      friendly_name: 'BEDROOM TV KODI'
+      command_on: 'JgBGAJSUEjcSNxI3EhISEhISEhISEhI3EjcSNxISEhISEhISEhISEhI3EhISEhISEhISNxI3EjcSEhI3EjcSNxI3EhISEhIABaQNBQ=='
+    bedroom_tv_volume_up:
+      friendly_name: 'BEDROOM TV VOLUME UP'
+      command_on: 'JgBGAJKVETkRORA6ERQRFBAVEBUQFRA7EDkROhAUERUQFRAUEBYQOhA6EDoPFhAVEBUQFQ8WEBUPFhAVEDoQOhA6EDoQOg8ADQUAAA=='
+    bedroom_tv_volume_down:
+      friendly_name: 'BEDROOM TV VOLUME DOWN'
+      command_on: 'JgBGAJKVEDoSOBE5EBUQFREUERQRFBA6EDoROREUEBURFBEUEBUQOhE5ERQROREUEBURFBAVEBUQFRE5ERQQOhE5EDoQOhAADQUAAA=='
+    bedroom_tv_volume_mute:
+      friendly_name: 'BEDROOM TV MUTE'
+      command_on: 'JgBGAJGWEDoQOhA6EBUQFREUEBURFBA6ETkRORITERQRFBEUEBURORE5ETkROREUERQTEhEUEBYPFhAVEBUQOg87EDoQOg8ADQUAAA=='
+
+- platform: broadlink
+  friendly_name: 'Roomba RMPRO'
+  host: 192.168.0.123
+  mac: '34:EA:34:43:2A:BE'
+  timeout: 15
+
+- platform: broadlink
+  friendly_name: 'Kitchen RMMINI'
+  host: 192.168.0.112
+  mac: '34:EA:34:42:A9:6F'
+  timeout: 15
+  switches: 
+    lg_tv_yes:
+      friendly_name: 'LG TV YES'
+      command_on: 'JgBWAAABJpITEhMSEzcTEhMSExETEhMSEzcTNxMSEzcTNxM3EzcTNxMSExETNxM3ExETERM3EzcTNxM3ExETERM3EzcTERMSEwAFNwABJkkTAAxiAAEmSROSDQU='
+    lg_tv_kodi:
+      friendly_name: 'LG TV KODI'
+      command_on: 'JgBWAAABJpITEhMSEzcTEhMSExETEhMSEzcTNxMSEzcTNxM3EzcTNxMSEzcTNxM3ExETEhM3EzcTNxMSExETERM3EzcTERMSEwAFNwABJkkTAAxiAAEmSROSDQU='
+    lg_tv_volume_up:
+      friendly_name: 'LG TV VOLUME UP'
+      command_on: 'JghQAAABJJQRExEUETgRFBEUEBQRFBETEzcROBEUETgROBE5EDkROBEUETgRFBETERQRFBAUERQROBEUETgROBE5EDkROBE4EQAFGAABJEwQAA0FAAAAAAAAAAA='
+    lg_tv_volume_down:
+      friendly_name: 'LG TV VOLUME DOWN'
+      command_on: 'JghQAAABJJQRFBETETkQFBEUERMRFBEUETgROBEUETgROBE5ETgROBE5ETgRFBAUERQRExEUERQRExEUETgUNRE5ETgROBE5EQAFGAABI0wRAA0FAAAAAAAAAAA='
+    lg_tv_volume_mute:
+      friendly_name: 'LG TV VOLUME MUTE'
+      command_on: 'JgBQAAABKJMSEhISEjcSEhISEhISEhISEjcSNxISEjcSNxI3EjcSNxI3EhISEhI3EhISEhISEhISEhI3EjcSEhI3EjcSNxI3EgAFGgABKEoSAAxWDQUAAAAAAAA='
+
+- platform: broadlink
+  friendly_name: 'Fireplace RM2PRO'
+  host: 192.168.0.124
+  mac: '34:EA:34:B5:46:61'
+  timeout: 15
+  switches:
+    fireplace_switch:
+      friendly_name: 'Fireplace'
+      command_on: 'sigwAAsUFQoVCgsUFQoWCgwUDBQMFBUKFQoVChUKFQoLFBYKFgoWChUKCxQLFBUKFQAECwAAAAAAAAAA'
+      command_off: 'showAAsUFQoVCgsUFQoVCgsVCxULFBUKFgoVChUKFQoLFBUKFQoVChUKCxQVChUKFQAECgAAAAAAAAAA'
+
+- platform: broadlink
+  friendly_name: 'Blanket'
+  host: 192.168.0.148
+  mac: '34:EA:34:B5:8D:90'
+  type: sp2
+  timeout: 15
+  switches:
+    blanket:
+      friendly_name: 'Blanket'
+
