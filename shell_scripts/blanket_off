@@ -1,0 +1,11 @@
+#!/bin/sh
+
+broadlink_cli --device '@/usr/share/broadlink/BlanketSP2' --turnoff
+rc=$?
+
+if [ $? -ne 0 ]; then
+  broadlink_cli --device '@/usr/share/broadlink/BlanketSP2' --turnoff
+  rc=$?
+fi
+
+exit $rc

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+lckdo -w /tmp/broadlink broadlink_cli --repeat_send=2 --device @/usr/share/broadlink/BedroomRM2 --send b21432001c1d0b0b1c0c1c0c1c1d0b1c0b1d0b0c1c1c0b1d0b0c1c0c1c1c0b0b1c1d0b0c1c1d0b1d0b1c0c0b1c0c1c1d0b1c0c1c0cc8000000000000&
+

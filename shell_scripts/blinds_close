@@ -1,0 +1,5 @@
+#!/bin/sh
+
+lckdo -w /tmp/broadlink broadlink_cli --repeat_send=2 --device @/usr/share/broadlink/RoombaRM2 --send \
+\
+b20fa8001d1c0c1c0d1c0c1c0c0b1d1c0c1c0d0b1d0b1d1c0c0b1d1c0d1c0c0b1d1c0c0b1d1c0c1c0c1c0c0b1d1c0c0b1d1c0c1c0cf80000000000001d0b1d0b1d1c0c1c0c1c0c0b1c1c0c1c0c1c0c1c0c0b1d0b1d1c0c0b1d1c0c0b1d1c0c1c0c1c0c0b1d1c0c0b1d1c0c1c0cf80000000000001d1c0c0b1d0b1d0b1d1c0c1d0c1c0c0b1d1c0c1c0b0b1d0b1d1c0c0c1d1c0c0b1c1c0c1c0c1c0c0b1d1c0c0b1d1c0c1d0cf8000000000000
