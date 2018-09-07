@@ -1,0 +1,38 @@
+- platform: command_line
+  covers:
+    garden_blinds:
+      friendly_name: Garden Blinds
+      command_open: '/home/homeassistant/.homeassistant/shell_scripts/garden_blinds_on'
+      command_close: '/home/homeassistant/.homeassistant/shell_scripts/garden_blinds_off'
+      command_stop: '/home/homeassistant/.homeassistant/shell_scripts/garden_blinds_pause'
+#      command_state: state_command garage
+#      value_template: >
+#        {% if value == 'open' %}
+#        100
+#        {% elif value == 'closed' %}
+#        0
+#        {% endif %}
+    street_blinds:
+      friendly_name: Street Blinds
+      command_open: '/home/homeassistant/.homeassistant/shell_scripts/street_blinds_on'
+      command_close: '/home/homeassistant/.homeassistant/shell_scripts/street_blinds_off'
+      command_stop: '/home/homeassistant/.homeassistant/shell_scripts/street_blinds_pause'
+#      command_state: state_command garage
+#      value_template: >
+#        {% if value == 'open' %}
+#        100
+#        {% elif value == 'closed' %}
+#        0
+#        {% endif %}
+    patio_blinds:
+      friendly_name: Patio Blinds  
+      command_open: '/home/homeassistant/.homeassistant/shell_scripts/kitchen_blinds_on'
+      command_close: '/home/homeassistant/.homeassistant/shell_scripts/kitchen_blinds_off'
+      command_stop: '/home/homeassistant/.homeassistant/shell_scripts/kitchen_blinds_pause'
+#      command_state: state_command garage
+#      value_template: >
+#        {% if value == 'open' %}
+#        100
+#        {% elif value == 'closed' %}
+#        0
+#        {% endif %}
