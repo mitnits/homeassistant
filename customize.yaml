@@ -43,3 +43,5 @@ media_player.samsung_7_series_40_ue40mu70000:
   friendly_name: Bedroom TV
 media_player.living_room_kodi:
   friendly_name: Living Room Kodi
+media_player.bedroom_kodi:
+  friendly_name: Bedroom Kodi
