@@ -1,3 +1,4 @@
 !.gitignore
 secrets.yaml
 known_devices.yaml
+home_assistant.log
