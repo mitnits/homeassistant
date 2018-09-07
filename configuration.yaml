@@ -54,7 +54,9 @@ map:
 sun:
 
 sensor: !include sensors.yaml
-  
+
+cover: !include covers.yaml
+
 switch: !include switches.yaml
 
 #Text to speech
@@ -96,3 +98,5 @@ camera:
     name: Living Room Camera
 
 scene: !include scenes.yaml
+
+shell_command: !include shell_scripts.yaml
