@@ -73,6 +73,7 @@ cloud:
         - climate
         - group
         - light
+        - cover
         - media_player
 
 group: !include groups.yaml

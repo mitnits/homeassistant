@@ -1,38 +1,29 @@
-- platform: command_line
+- platform: template
   covers:
     garden_blinds:
-      friendly_name: Garden Blinds
-      command_open: '/home/homeassistant/.homeassistant/shell_scripts/garden_blinds_on'
-      command_close: '/home/homeassistant/.homeassistant/shell_scripts/garden_blinds_off'
-      command_stop: '/home/homeassistant/.homeassistant/shell_scripts/garden_blinds_pause'
-#      command_state: state_command garage
-#      value_template: >
-#        {% if value == 'open' %}
-#        100
-#        {% elif value == 'closed' %}
-#        0
-#        {% endif %}
+      friendly_name: "Garden Blinds"
+      open_cover:
+        service: shell_command.garden_blinds_on
+      close_cover:
+        service: shell_command.garden_blinds_off
+      stop_cover:
+        service: shell_command.garden_blinds_pause
+      position_template: '{{ 50 }}'
     street_blinds:
-      friendly_name: Street Blinds
-      command_open: '/home/homeassistant/.homeassistant/shell_scripts/street_blinds_on'
-      command_close: '/home/homeassistant/.homeassistant/shell_scripts/street_blinds_off'
-      command_stop: '/home/homeassistant/.homeassistant/shell_scripts/street_blinds_pause'
-#      command_state: state_command garage
-#      value_template: >
-#        {% if value == 'open' %}
-#        100
-#        {% elif value == 'closed' %}
-#        0
-#        {% endif %}
-    patio_blinds:
-      friendly_name: Patio Blinds  
-      command_open: '/home/homeassistant/.homeassistant/shell_scripts/kitchen_blinds_on'
-      command_close: '/home/homeassistant/.homeassistant/shell_scripts/kitchen_blinds_off'
-      command_stop: '/home/homeassistant/.homeassistant/shell_scripts/kitchen_blinds_pause'
-#      command_state: state_command garage
-#      value_template: >
-#        {% if value == 'open' %}
-#        100
-#        {% elif value == 'closed' %}
-#        0
-#        {% endif %}
+      friendly_name: "Street Blinds"
+      open_cover:
+        service: shell_command.street_blinds_on
+      close_cover:
+        service: shell_command.street_blinds_off
+      stop_cover:
+        service: shell_command.street_blinds_pause
+      position_template: '{{ 50 }}'
+    kitchen_blinds:
+      friendly_name: "Patio Blinds"
+      open_cover:
+        service: shell_command.kitchen_blinds_on
+      close_cover:
+        service: shell_command.kitchen_blinds_off
+      stop_cover:
+        service: shell_command.kitchen_blinds_pause
+      position_template: '{{ 50 }}'
