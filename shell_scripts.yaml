@@ -1,3 +1,5 @@
+fireplace_on: /home/homeassistant/.homeassistant/shell_scripts/fireplace_on
+fireplace_off: /home/homeassistant/.homeassistant/shell_scripts/fireplace_off  
 ac_off: /home/homeassistant/.homeassistant/shell_scripts/ac_off
 ac_on: /home/homeassistant/.homeassistant/shell_scripts/ac_on
 bedroom_ac_off: /home/homeassistant/.homeassistant/shell_scripts/bedroom_ac_off
