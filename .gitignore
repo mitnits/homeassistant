@@ -4,4 +4,8 @@ known_devices.yaml
 home-assistant.log
 .HA_VERSION
 custom_components/climate/__pycache__
+custom_components/media_player/__pycache__
+custom_components/sensor/__pycache__
+.cloud
+.storage
 .uuid
