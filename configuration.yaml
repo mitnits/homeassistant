@@ -75,6 +75,7 @@ cloud:
         - light
         - cover
         - media_player
+        - script
 
 group: !include groups.yaml
 automation: !include automations.yaml
@@ -99,5 +100,7 @@ camera:
     name: Living Room Camera
 
 scene: !include scenes.yaml
+
+light: !include light.yaml
 
 shell_command: !include shell_scripts.yaml

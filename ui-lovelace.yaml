@@ -103,31 +103,31 @@ views:
         title: Kitchen
         show_header_toggle: True
         entities:
-          - switch.kitchen_chandelier
-          - switch.kitchen_led_bar
-          - switch.kitchen_spots
+          - light.kitchen_chandelier
+          - light.kitchen_led_bar
+          - light.kitchen_spots
 
       - type: entities
         title: Living room
         show_header_toggle: False
         entities:
-          - switch.living_room_spots
-          - switch.led_bar
+          - light.living_room_spots
+          - light.led_bar
 
       - type: entities
         title: Blinds
         show_header_toggle: True
         entities:
-          - switch.garden_blinds
-          - switch.kitchen_blinds
-          - switch.street_blinds
+          - cover.garden_blinds
+          - cover.kitchen_blinds
+          - cover.street_blinds
 
       - type: entities
         title: Dining Table
         show_header_toggle: True
         entities:
-          - switch.dining_table_light
-          - switch.entrance_spots
+          - light.dining_table_light
+          - light.entrance_spots
 
 
       - type: glance

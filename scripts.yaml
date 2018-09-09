@@ -1,0 +1,22 @@
+open_blinds:
+  sequence:
+    - service: cover.open_cover
+      data:
+        entity_id: covers.kitchen_blinds
+    - service: cover.open_cover
+      data:
+        entity_id: covers.garden_blinds
+    - service: cover.open_cover
+      data:
+        entity_id: covers.street_blinds
+close_blinds:
+  sequence:
+    - service: cover.close_cover
+      data:
+        entity_id: covers.kitchen_blinds  
+    - service: cover.close_cover
+      data:
+        entity_id: covers.garden_blinds
+    - service: cover.close_cover  
+      data:
+        entity_id: covers.street_blinds

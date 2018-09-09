@@ -1,67 +1,5 @@
 - platform: command_line
   switches:
-    dining_table_light:
-      command_on: '/home/homeassistant/.homeassistant/shell_scripts/dining_table_light_on'
-      command_off: '/home/homeassistant/.homeassistant/shell_scripts/dining_table_light_off'
-      friendly_name: 'Dining Table Light'
-    entrance_light:
-      command_on: '/home/homeassistant/.homeassistant/shell_scripts/entrance_light_on'
-      command_off: '/home/homeassistant/.homeassistant/shell_scripts/entrance_light_off'
-      friendly_name: 'Outside Entrance Lamp'
-    entrance_spots:
-      command_on: '/home/homeassistant/.homeassistant/shell_scripts/entrance_spots_on'
-      command_off: '/home/homeassistant/.homeassistant/shell_scripts/entrance_spots_off'
-      friendly_name: 'Entrance Light'
-    garden_spots:
-      command_on: '/home/homeassistant/.homeassistant/shell_scripts/garden_spots_on'
-      command_off: '/home/homeassistant/.homeassistant/shell_scripts/garden_spots_off'
-      friendly_name: 'Outside Garden Light'
-    kitchen_chandelier:
-      command_on: '/home/homeassistant/.homeassistant/shell_scripts/kitchen_chandelier_on'
-      command_off: '/home/homeassistant/.homeassistant/shell_scripts/kitchen_chandelier_off'
-      friendly_name: 'Chandelier'
-    kitchen_led_bar:
-      command_on: '/home/homeassistant/.homeassistant/shell_scripts/kitchen_led_bar_on'
-      command_off: '/home/homeassistant/.homeassistant/shell_scripts/kitchen_led_bar_off'
-      friendly_name: 'Fridge Light'
-    kitchen_spots:
-      command_on: '/home/homeassistant/.homeassistant/shell_scripts/kitchen_spots_on'
-      command_off: '/home/homeassistant/.homeassistant/shell_scripts/kitchen_spots_off'
-      friendly_name: 'Countertop Light'
-    led_bar:
-      command_on: '/home/homeassistant/.homeassistant/shell_scripts/led_bar_on'
-      command_off: '/home/homeassistant/.homeassistant/shell_scripts/led_bar_off'
-      friendly_name: 'Light above the fireplace'
-    left_spot_rail:
-      command_on: '/home/homeassistant/.homeassistant/shell_scripts/left_spot_rail_on'
-      command_off: '/home/homeassistant/.homeassistant/shell_scripts/left_spot_rail_off'
-    right_spot_rail:
-      command_on: '/home/homeassistant/.homeassistant/shell_scripts/right_spot_rail_on'
-      command_off: '/home/homeassistant/.homeassistant/shell_scripts/right_spot_rail_off'
-    living_room_spots:
-      command_on: '/home/homeassistant/.homeassistant/shell_scripts/living_room_spots_on'
-      command_off: '/home/homeassistant/.homeassistant/shell_scripts/living_room_spots_off'
-      friendly_name: 'Living Room Spots'
-    parking_light:
-      command_on: '/home/homeassistant/.homeassistant/shell_scripts/parking_light_on'
-      command_off: '/home/homeassistant/.homeassistant/shell_scripts/parking_light_off'
-      friendly_name: 'Outside parking light'
-    toilet_light:
-      command_on: '/home/homeassistant/.homeassistant/shell_scripts/toilet_light_on'
-      command_off: '/home/homeassistant/.homeassistant/shell_scripts/toilet_light_off'
-      friendly_name: 'Toilet Light'
-    kitchen_blinds:
-      command_on: '/home/homeassistant/.homeassistant/shell_scripts/kitchen_blinds_on'
-      command_off: '/home/homeassistant/.homeassistant/shell_scripts/kitchen_blinds_off'
-      friendly_name: 'Patio Blinds'
-    garden_blinds:
-      command_on: '/home/homeassistant/.homeassistant/shell_scripts/garden_blinds_on'
-      command_off: '/home/homeassistant/.homeassistant/shell_scripts/garden_blinds_off'
-      friendly_name: 'Garden Blinds'
-    street_blinds:
-      command_on: '/home/homeassistant/.homeassistant/shell_scripts/street_blinds_on'
-      command_off: '/home/homeassistant/.homeassistant/shell_scripts/street_blinds_off'
-      friendly_name: 'Street Blinds'
     roomba:
       command_on: '/home/homeassistant/.homeassistant/shell_scripts/roomba_on'
     bedroom_tv:
@@ -69,7 +7,6 @@
       command_off: '/home/homeassistant/.homeassistant/shell_scripts/bedroom_tv_off'
       command_state: '/bin/ping -c 1 192.168.0.131 -W 2'
       friendly_name: 'Bedroom TV'
-
 
 - platform: template
   switches:

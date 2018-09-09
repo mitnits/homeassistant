@@ -8,7 +8,6 @@
         service: shell_command.garden_blinds_off
       stop_cover:
         service: shell_command.garden_blinds_pause
-      position_template: '{{ 50 }}'
     street_blinds:
       friendly_name: "Street Blinds"
       open_cover:
@@ -17,7 +16,6 @@
         service: shell_command.street_blinds_off
       stop_cover:
         service: shell_command.street_blinds_pause
-      position_template: '{{ 50 }}'
     kitchen_blinds:
       friendly_name: "Patio Blinds"
       open_cover:
@@ -26,4 +24,4 @@
         service: shell_command.kitchen_blinds_off
       stop_cover:
         service: shell_command.kitchen_blinds_pause
-      position_template: '{{ 50 }}'
+

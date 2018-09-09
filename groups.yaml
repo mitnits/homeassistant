@@ -1,16 +1,16 @@
 outdoors_lights:
   name: Outdoors Lights
   entities:
-    - switch.garden_spots
-    - switch.entrance_light
-    - switch.parking_light    
+    - light.garden_spots
+    - light.entrance_light
+    - light.parking_light    
 
 kitchen:
   name: Kitchen Lights
   entities:
-    - switch.kitchen_chandelier
-    - switch.kitchen_led_bar
-    - switch.kitchen_spots 
+    - light.kitchen_chandelier
+    - light.kitchen_led_bar
+    - light.kitchen_spots 
 
 lg_television_controls:
   name: LG Television Controls

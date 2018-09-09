@@ -4,13 +4,22 @@ sensor.bedroom_rm2pro_temperature:
   friendly_name: Bedroom
 group.all_switches: {}
 group.all_devices: {}
-switch.left_spot_rail:
+cover.garden_blinds:
+  device_class: window
+  assumed_state: true
+cover.kitchen_blinds:
+  device_class: window
+  assumed_state: true  
+cover.street_blinds:
+  device_class: window
+  assumed_state: true  
+light.left_spot_rail:
   hidden: true
-switch.right_spot_rail:
+light.right_spot_rail:
   hidden: true
 switch.blanket:
   hidden: true
-switch.toilet_light:
+light.toilet_light:
   hidden: true
 switch.lg_tv_volume_down:
   hidden: true
