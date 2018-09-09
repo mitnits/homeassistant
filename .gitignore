@@ -3,3 +3,5 @@ secrets.yaml
 known_devices.yaml
 home-assistant.log
 .HA_VERSION
+custom_components/climate/__pycache__
+.uuid
