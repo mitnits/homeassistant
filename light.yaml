@@ -1,0 +1,78 @@
+- platform: template
+  lights:
+    dining_table_light:
+      turn_on:
+        service: shell_command.dining_table_light_on
+      turn_off:
+        service: shell_command.dining_table_light_off
+      friendly_name: 'Dining Table Light'
+    entrance_light:
+      turn_on:
+        service: shell_command.entrance_light_on
+      turn_off:
+        service: shell_command.entrance_light_off
+      friendly_name: 'Outside Entrance Lamp'
+    entrance_spots:
+      turn_on:
+        service: shell_command.entrance_spots_on
+      turn_off:
+        service: shell_command.entrance_spots_off
+      friendly_name: 'Entrance Light'
+    garden_spots:
+      turn_on:
+        service: shell_command.garden_spots_on
+      turn_off:
+        service: shell_command.garden_spots_off
+      friendly_name: 'Outside Garden Light'
+    kitchen_chandelier:
+      turn_on:
+        service: shell_command.kitchen_chandelier_on
+      turn_off:
+        service: shell_command.kitchen_chandelier_off
+      friendly_name: 'Chandelier'
+    kitchen_led_bar:
+      turn_on:
+        service: shell_command.kitchen_led_bar_on
+      turn_off:
+        service: shell_command.kitchen_led_bar_off
+      friendly_name: 'Fridge Light'
+    kitchen_spots:
+      turn_on:
+        service: shell_command.kitchen_spots_on
+      turn_off:
+        service: shell_command.kitchen_spots_off
+      friendly_name: 'Countertop Light'
+    led_bar:
+      turn_on:
+        service: shell_command.led_bar_on
+      turn_off:
+        service: shell_command.led_bar_off
+      friendly_name: 'Light above the fireplace'
+    left_spot_rail:
+      turn_on:
+        service: shell_command.left_spot_rail_on
+      turn_off:
+        service: shell_command.left_spot_rail_off
+    right_spot_rail:
+      turn_on:
+        service: shell_command.right_spot_rail_on
+      turn_off: 
+        service: shell_command.right_spot_rail_off
+    living_room_spots:
+      turn_on: 
+        service: shell_command.living_room_spots_on
+      turn_off:
+        service: shell_command.living_room_spots_off
+      friendly_name: 'Living Room Spots'
+    parking_light:
+      turn_on: 
+        service: shell_command.parking_light_on
+      turn_off:
+        service: shell_command.parking_light_off
+      friendly_name: 'Outside parking light'
+    toilet_light:
+      turn_on:
+        service: shell_command.toilet_light_on
+      turn_off:
+        service: shell_command.toilet_light_off
+      friendly_name: 'Toilet Light'
