@@ -1,8 +1,18 @@
+- id: parking_light_on_at_sunset
+  alias: Parking light on at sunset  
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:45:00"
+  action:
+    service: light.turn_on
+    entity_id: light.parking_light
+  
 - id: outside_lights_off_at_night
   alias: Outside Lights Off
   trigger:
     platform: time
-    at: 00:30:00
+    at: 01:30:00
   condition:
   - condition: time
     weekday:
@@ -14,33 +24,140 @@
     - fri
     - sat
   action:
-  - service: switch.turn_off
+  - service: light.turn_off
     data:
-      entity_id: switch.entrance_light
-  - service: switch.turn_off
+      entity_id: light.entrance_light
+  - service: light.turn_off
     data:
-      entity_id: switch.garden_spots
-  - service: switch.turn_off
+      entity_id: light.garden_spots
+  - service: light.turn_off
     data:
-      entity_id: switch.parking_light
+      entity_id: light.parking_light
 
 - id: darken_the_room_when_kodi_plays
   alias: Turn off kitchen lights when Kodi is playing
   trigger:
   - entity_id: media_player.living_room_kodi
     platform: state
-    to: 'playing'
+    to: playing
   condition:
-    - condition: state
-      entity_id: sun.sun
-      state: 'below_horizon'
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
   action:
-    - service: scene.turn_on
-      data:
-        entity_id: scene.kitchen_off
-    - service: scene.turn_on
-      data:
-        entity_id: switch.living_room_off
-    - service: switch.turn_on
-      data:
-        entity_id: switch.dining_table_light
+  - data:
+      entity_id: scene.kitchen_off
+    service: scene.turn_on
+  - data:
+      entity_id: switch.living_room_off
+    service: scene.turn_on
+  - data:
+      entity_id: light.dining_table_light
+    service: switch.turn_on
+  - delay: '00:01:00'
+  - data:
+      entity_id: cover.kitchen_blinds
+    service: cover.close_cover
+
+- id: 'toilet_light_on'
+  alias: Toilet Light On
+  trigger:
+  - entity_id: binary_sensor.motion_sensor_158d000244e28d
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      entity_id: light.toilet_light
+    service: light.turn_on
+
+- id: 'toilet_light_off'
+  alias: Toilet Light Off
+  trigger:
+  - entity_id: binary_sensor.motion_sensor_158d000244e28d
+    from: 'on'
+    to: 'off'
+    for: '00:05:00'
+    platform: state
+  condition: []
+  action:
+  - data:
+      entity_id: light.toilet_light
+    service: light.turn_off
+
+- id: 'sync_tamir_ac_state_off'
+  alias: 'Sync Tamir AC state to off'
+  trigger:
+  - entity_id: sensor.tamir_ac_power
+    below: 10
+    for: '00:00:30'
+    platform: numeric_state
+  condition: []
+  action:
+  - data:
+      entity_id: switch.tamir_ac
+    service: switch.turn_off
+
+- id: 'sync_tamir_ac_state_on'
+  alias: 'Sync Tamir AC state to on'
+  trigger:
+  - entity_id: sensor.tamir_ac_power
+    above: 10
+    for: '00:00:30'
+    platform: numeric_state
+  condition: []
+  action:
+  - data:
+      entity_id: switch.tamir_ac
+    service: switch.turn_on
+
+- id: 'sync_girls_ac_state_off'
+  alias: 'Sync Girls AC state to off'
+  trigger:
+  - entity_id: sensor.girls_ac_power
+    below: 10
+    for: '00:00:30'
+    platform: numeric_state
+  condition: []
+  action:
+  - data:
+      entity_id: switch.girls_ac
+    service: switch.turn_off
+
+- id: 'sync_girls_ac_state_on'
+  alias: 'Sync Girls AC state to on'
+  trigger:
+  - entity_id: sensor.girls_ac_power
+    above: 10
+    for: '00:00:30'
+    platform: numeric_state
+  condition: []
+  action:
+  - data:
+      entity_id: switch.girls_ac
+    service: switch.turn_on
+
+#- id: 'sync_bedroom_ac_state_off'
+#  alias: 'Sync Bedroom AC state to off'
+#  trigger:
+#  - entity_id: sensor.bedroom_ac_power
+#    below: 10
+#    platform: numeric_state
+#  condition: []
+#  action:
+#  - data:
+#      entity_id: switch.bedroom_ac
+#    service: switch.turn_off
+
+#- id: 'sync_bedroom_ac_state_on'
+#  alias: 'Sync Bedroom AC state to on'
+#  trigger:
+#  - entity_id: sensor.bedroom_ac_power
+#    above: 10
+#    platform: numeric_state
+#  condition: []
+#  action:
+#  - data:
+#      entity_id: switch.bedroom_ac
+#    service: switch.turn_on

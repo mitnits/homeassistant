@@ -25,7 +25,7 @@ config:
 http:
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   base_url: hass-io.dyndns-server.com
-
+  api_password: !secret http_password
 # Checks for available updates
 # Note: This component will send some information about your system to
 # the developers to assist with development of Home Assistant.
@@ -55,6 +55,13 @@ sun:
 
 sensor: !include sensors.yaml
 
+binary_sensor:
+  - platform: ping
+    name: bedroom_tv
+    host: 192.168.0.131
+    count: 2
+    scan_interval: 15
+  
 cover: !include covers.yaml
 
 switch: !include switches.yaml
@@ -92,11 +99,11 @@ climate: !include climate.yaml
 media_player: !include media_players.yaml
 
 logger:
-  default: info
+  default: info  
 
 camera:
   - platform: mjpeg
-    mjpeg_url: http://guest:Zubur123-guest@192.168.0.133:8083/axis-cgi/mjpg/video.cgi?cameraId=2016136196
+    mjpeg_url: !secret mjpeg_url
     name: Living Room Camera
 
 scene: !include scenes.yaml
@@ -104,3 +111,15 @@ scene: !include scenes.yaml
 light: !include light.yaml
 
 shell_command: !include shell_scripts.yaml
+
+mqtt:
+  broker: 192.168.0.107
+
+xiaomi_aqara:
+  gateways:
+    - mac: 7C:49:EB:1A:4D:A1
+      host: 192.168.0.111
+      key: i2ls89s1193mivo6
+
+
+

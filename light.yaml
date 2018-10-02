@@ -76,3 +76,15 @@
       turn_off:
         service: shell_command.toilet_light_off
       friendly_name: 'Toilet Light'
+    tamir_light:
+      turn_on:
+        service: shell_command.tamir_on
+      turn_off:
+        service: shell_command.tamir_off
+      friendly_name: 'Tamir Light'
+    girls_light:
+      turn_on:
+        service: shell_command.girls_on
+      turn_off:
+        service: shell_command.girls_off
+      friendly_name: 'Girls Light'  

@@ -9,18 +9,17 @@ cover.garden_blinds:
   assumed_state: true
 cover.kitchen_blinds:
   device_class: window
-  assumed_state: true  
+  assumed_state: true
 cover.street_blinds:
   device_class: window
-  assumed_state: true  
+  assumed_state: true
 light.left_spot_rail:
   hidden: true
 light.right_spot_rail:
   hidden: true
 switch.blanket:
   hidden: true
-light.toilet_light:
-  hidden: true
+light.toilet_light: {}
 switch.lg_tv_volume_down:
   hidden: true
 switch.lg_tv_volume_up:
@@ -54,3 +53,17 @@ media_player.living_room_kodi:
   friendly_name: Living Room Kodi
 media_player.bedroom_kodi:
   friendly_name: Bedroom Kodi
+sensor.bedroom_tv:
+  hidden: true
+binary_sensor.bedroom_tv:
+  hidden: true
+media_player.bedroom_tv:
+  hidden: true
+climate.bedroom_ac:
+  friendly_name: Bedroom AC
+binary_sensor.motion_sensor_158d000244e28d:
+  friendly_name: Toilet Motion Sensor
+binary_sensor.door_window_sensor_158d00027b3558:
+  friendly_name: Street Blinds Sensor
+binary_sensor.door_window_sensor_158d00027b5b86:
+  friendly_name: Kitchen Blinds Sensor

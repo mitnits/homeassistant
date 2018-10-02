@@ -26,7 +26,7 @@ views:
         show_header_toggle: false
         entities:
           - climate.ac
-          - climate.bedroomac
+          - climate.bedroom_ac
 
 #      - type: entities
 #        title: Groups

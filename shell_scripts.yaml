@@ -31,6 +31,7 @@ street_blinds_pause: /home/homeassistant/.homeassistant/shell_scripts/street_bli
   
 garden_spots_off: /home/homeassistant/.homeassistant/shell_scripts/garden_spots_off
 garden_spots_on: /home/homeassistant/.homeassistant/shell_scripts/garden_spots_on
+gate_open: /home/homeassistant/.homeassistant/shell_scripts/gate_open
 kitchen_chandelier_off: /home/homeassistant/.homeassistant/shell_scripts/kitchen_chandelier_off
 kitchen_chandelier_on: /home/homeassistant/.homeassistant/shell_scripts/kitchen_chandelier_on
 kitchen_led_bar_off: /home/homeassistant/.homeassistant/shell_scripts/kitchen_led_bar_off

@@ -17,3 +17,26 @@
 #  host: 192.168.0.138
 #  mac: '34:EA:34:B5:46:61'
 
+- platform: mqtt
+  name: tamir_ac_power
+  state_topic: "tele/tamir/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+
+- platform: mqtt
+  name: girls_ac_power
+  state_topic: "tele/girls/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+
+- platform: mqtt
+  name: bedroom_ac_power
+  state_topic: "tele/bedroom/SENSOR"
+  value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  unit_of_measurement: "W"
+    
+- platform: template
+  sensors:
+    bedroom_tv:
+      friendly_name: "Bedroom TV"
+      value_template: "{{ is_state('media_player.bedroom_tv', 'on') and is_state('binary_sensor.bedroom_tv', 'on') }}"

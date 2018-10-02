@@ -2,14 +2,24 @@
   switches:
     roomba:
       command_on: '/home/homeassistant/.homeassistant/shell_scripts/roomba_on'
-    bedroom_tv:
-      command_on: '/home/homeassistant/.homeassistant/shell_scripts/bedroom_tv_on'
-      command_off: '/home/homeassistant/.homeassistant/shell_scripts/bedroom_tv_off'
-      command_state: '/bin/ping -c 1 192.168.0.131 -W 2'
-      friendly_name: 'Bedroom TV'
 
 - platform: template
   switches:
+    bedroom_tv:
+      friendly_name: 'Bedroom TV'
+      turn_on: 
+        service: shell_command.bedroom_tv_on
+      turn_off:
+        service: shell_command.bedroom_tv_off
+      value_template: "{{ is_state('binary_sensor.bedroom_tv', 'on') }}"
+    gate_open:
+      friendly_name: 'Driveway Gate'
+      value_template: "false"
+      turn_on:
+        service: shell_command.gate_open
+      turn_off:
+        service: shell_command.gate_open
+      icon_template: mdi:car
     lg_tv_turn_volume_up:
       friendly_name: 'LG TV Volume+'
       value_template: "false"
@@ -113,25 +123,61 @@
 
 
     bedroom_ac:
-      friendly_name: 'Bedroom CC for Alexa'
-      value_template: "{{ not is_state('climate.bedroomac', 'off') }}"
+      friendly_name: 'Bedroom CC'
+      value_template: "{{ not is_state('climate.bedroom_ac', 'off') }}"
       turn_on:
         service: climate.turn_on
-        entity_id: climate.bedroomac
+        entity_id: climate.bedroom_ac
       turn_off:
         service: climate.turn_off
-        entity_id: climate.bedroomac
+        entity_id: climate.bedroom_ac
       icon_template: >-
-        {% if is_state('climate.bedroomac', 'cool') %}
+        {% if is_state('climate.bedroom_ac', 'cool') %}
           mdi:snowflake
-        {% elif is_state('climate.bedroomac', 'heat') %}
+        {% elif is_state('climate.bedroom_ac', 'heat') %}
+          mdi:white-balance-sunny
+        {% else %}
+          mdi:checkbox-blank-circle-outline
+        {% endif %}
+
+    girls_ac:
+      friendly_name: 'Girls CC'
+      value_template: "{{ not is_state('climate.girls_ac', 'off') }}"
+      turn_on:
+        service: climate.turn_on
+        entity_id: climate.girls_ac
+      turn_off:
+        service: climate.turn_off
+        entity_id: climate.girls_ac
+      icon_template: >-
+        {% if is_state('climate.girls_ac', 'cool') %}
+          mdi:snowflake
+        {% elif is_state('climate.girls_ac', 'heat') %}
+          mdi:white-balance-sunny
+        {% else %}
+          mdi:checkbox-blank-circle-outline
+        {% endif %}
+
+    tamir_ac:
+      friendly_name: 'Tamir CC'
+      value_template: "{{ not is_state('climate.tamir_ac', 'off') }}"
+      turn_on:
+        service: climate.turn_on
+        entity_id: climate.tamir_ac
+      turn_off:
+        service: climate.turn_off
+        entity_id: climate.tamir_ac
+      icon_template: >-
+        {% if is_state('climate.tamir_ac', 'cool') %}
+          mdi:snowflake
+        {% elif is_state('climate.tamir_ac', 'heat') %}
           mdi:white-balance-sunny
         {% else %}
           mdi:checkbox-blank-circle-outline
         {% endif %}
 
     downstairs_ac:
-      friendly_name: 'Downstairs CC for Alexa'
+      friendly_name: 'Downstairs CC'
       value_template: "{{ not is_state('climate.ac', 'off') }}"
       turn_on:
         service: climate.turn_on

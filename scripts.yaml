@@ -1,22 +1,26 @@
 open_blinds:
   sequence:
-    - service: cover.open_cover
-      data:
-        entity_id: covers.kitchen_blinds
-    - service: cover.open_cover
-      data:
-        entity_id: covers.garden_blinds
-    - service: cover.open_cover
-      data:
-        entity_id: covers.street_blinds
+  - data:
+      entity_id: cover.kitchen_blinds
+    service: cover.open_cover
+  - delay: 00:00:10
+  - data:
+      entity_id: cover.street_blinds
+    service: cover.open_cover
+  - delay: 00:00:10
+  - data:
+      entity_id: cover.garden_blinds
+    service: cover.open_cover
 close_blinds:
   sequence:
-    - service: cover.close_cover
-      data:
-        entity_id: covers.kitchen_blinds  
-    - service: cover.close_cover
-      data:
-        entity_id: covers.garden_blinds
-    - service: cover.close_cover  
-      data:
-        entity_id: covers.street_blinds
+  - data:
+      entity_id: cover.kitchen_blinds
+    service: cover.close_cover
+  - delay: 00:00:10
+  - data:
+      entity_id: cover.street_blinds
+    service: cover.close_cover
+  - delay: 00:00:10
+  - data:
+      entity_id: cover.garden_blinds
+    service: cover.close_cover

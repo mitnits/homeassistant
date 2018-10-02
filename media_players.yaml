@@ -9,3 +9,6 @@
 - platform: kodi
   name: bedroom_kodi
   host: 192.168.0.104
+- platform: samsungtv
+  name: bedroom_tv
+  host: 192.168.0.131
