@@ -1,0 +1,38 @@
+- platform: template
+  sensors:
+    lia_home:
+      device_class: presence
+      entity_picture_template: '/local/avatar_horse{% if states.sensor.lia.state|int < 10 %}_bw{% endif %}.png'
+      friendly_name: "Lia"
+      value_template: >-
+        {{ states.sensor.lia.state|int > 10 }}
+    mika_home:
+      device_class: presence
+      entity_picture_template: '/local/avatar_awesome{% if states.sensor.mika.state|int < 10 %}_bw{% endif %}.png'
+      friendly_name: "Mika"
+      value_template: >-
+        {{ states.sensor.mika.state|int > 10 }}
+    tamir_home:
+      device_class: presence
+      entity_picture_template: '/local/avatar_cat{% if states.sensor.tamir.state|int < 10 %}_bw{% endif %}.png'
+      friendly_name: "Tamir"
+      value_template: >-
+        {{ states.sensor.tamir.state|int > 10 }}
+    dina_home:
+      device_class: presence
+      entity_picture_template: '/local/avatar_volley_ball{% if states.sensor.dina.state|int < 10 %}_bw{% endif %}.png'
+      friendly_name: "Dina"
+      value_template: >-
+        {{ states.sensor.dina.state|int > 10 }}
+    roman_home:
+      device_class: presence
+      entity_picture_template: '/local/avatar_ninja{% if states.sensor.roman.state|int < 10 %}_bw{% endif %}.png'
+      friendly_name: "Roman"
+      value_template: >-
+        {{ states.sensor.roman.state|int > 10 }}
+
+- platform: ping
+  host: 192.168.0.131
+  scan_interval: 120
+  name: 'tamir_ping'
+

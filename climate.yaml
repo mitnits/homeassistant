@@ -42,9 +42,9 @@
 
 - platform: broadlink
   name: girls_ac
-  host: 192.168.0.124
-  mac: '34:EA:34:B5:46:61'  
-  ircodes_ini: 'broadlink_climate_codes/samsung.ini'
+  host: 192.168.0.125
+  mac: '78:0F:77:18:41:BB'  
+  ircodes_ini: 'broadlink_climate_codes/gree.ini'
   min_temp: 18
   max_temp: 28
   target_temp: 25

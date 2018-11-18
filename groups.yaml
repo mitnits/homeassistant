@@ -1,19 +1,74 @@
-outdoors_lights:
-  name: Outdoors Lights
+presence:
+  name: Presence
+  control: hidden
   entities:
-    - light.garden_spots
-    - light.entrance_light
-    - light.parking_light    
+    - binary_sensor.roman_home
+    - binary_sensor.dina_home
+    - binary_sensor.tamir_home
+    - binary_sensor.lia_home
+    - binary_sensor.mika_home
+
+living_room:
+  name: Living Room
+  control: hidden
+  entities:
+    - light.living_room_spots
+    - light.led_bar
+    - switch.lg_tv
+    - binary_sensor.door_window_sensor_158d00028b5b92
+    - cover.garden_blinds
+    - climate.ac
+    - switch.downstairs_ac
+    - switch.fireplace
+    - camera.living_room_camera
 
 kitchen:
-  name: Kitchen Lights
+  name: Kitchen
+  control: hidden
   entities:
     - light.kitchen_chandelier
     - light.kitchen_led_bar
-    - light.kitchen_spots 
+    - light.kitchen_spots
+    - binary_sensor.door_window_sensor_158d00027b5b86 
+    - cover.kitchen_blinds
+
+dining:
+  name: Dining Area
+  control: hidden
+  entities:
+    - light.dining_table_light
+    - light.entrance_light
+    - switch.roomba
+    - binary_sensor.door_window_sensor_158d00027b3558
+    - cover.street_blinds
+    
+bedroom:
+  name: Bedroom
+  control: hidden
+  entities:
+    - switch.bedroom_tv
+    - climate.bedroom_ac
+    - switch.bedroom_ac
+
+girls_bedroom:
+  name: Girls Room
+  control: hidden
+  entities:
+    - light.girls_light
+    - climate.girls_ac
+    - switch.girls_ac
+
+tamir_bedroom:
+  name: Tamir Room
+  control: hidden
+  entities:
+    - light.tamir_light
+    - climate.tamir_ac
+    - switch.tamir_ac
 
 lg_television_controls:
-  name: LG Television Controls
+  name: Living Room TV
+  control: hidden
   entities:
     - switch.lg_tv  
     - switch.lg_tv_select_kodi
@@ -23,7 +78,8 @@ lg_television_controls:
     - switch.lg_tv_set_volume_mute
 
 samsung_television_controls:
-  name: Samsung Television Controls
+  name: Bedroom TV
+  control: hidden
   entities:
     - switch.bedroom_tv
     - switch.bedroom_tv_select_kodi
@@ -31,4 +87,12 @@ samsung_television_controls:
     - switch.bedroom_tv_turn_volume_up
     - switch.bedroom_tv_turn_volume_down
     - switch.bedroom_tv_set_volume_mute
+    
+outdoors_lights:
+  name: Outdoors Lights
+  control: hidden
+  entities:
+    - light.garden_spots
+    - light.entrance_light
+    - light.parking_light    
 

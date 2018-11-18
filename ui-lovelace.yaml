@@ -27,6 +27,8 @@ views:
         entities:
           - climate.ac
           - climate.bedroom_ac
+          - climate.girls_ac  
+          - climate.tamir_ac
 
 #      - type: entities
 #        title: Groups
@@ -56,6 +58,8 @@ views:
         entities:
           - sensor.bedroom_rm2pro_temperature
           - sensor.fireplace_rm2pro_temperature
+          - binary_sensor.door_window_sensor_158d00027b3558
+          - binary_sensor.door_window_sensor_158d00027b5b86
           - sun.sun
   
       - type: glance
@@ -137,6 +141,8 @@ views:
         entities:
           - switch.bedroom_ac
           - switch.downstairs_ac
+          - switch.tamir_ac  
+          - switch.girls_ac  
           - switch.fireplace
           - switch.blanket
 #          - switch.garden_spots

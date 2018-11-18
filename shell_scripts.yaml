@@ -57,6 +57,9 @@ roomba_off: /home/homeassistant/.homeassistant/shell_scripts/roomba_off
 roomba_on: /home/homeassistant/.homeassistant/shell_scripts/roomba_on
 tamir_off: /home/homeassistant/.homeassistant/shell_scripts/tamir_off
 tamir_on: /home/homeassistant/.homeassistant/shell_scripts/tamir_on
+girls_off: /home/homeassistant/.homeassistant/shell_scripts/girls_off
+girls_on: /home/homeassistant/.homeassistant/shell_scripts/girls_on
+
 toilet___everything_off: /home/homeassistant/.homeassistant/shell_scripts/toilet___everything_off
 toilet___everything_on: /home/homeassistant/.homeassistant/shell_scripts/toilet___everything_on
 toilet_light_off: /home/homeassistant/.homeassistant/shell_scripts/toilet_light_off

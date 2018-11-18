@@ -310,7 +310,7 @@ class BroadlinkIRClimate(ClimateDevice):
         if operation_mode == 'off':
           self._is_on = False
         else:
-          self._is_on = True            
+          self._is_on = True
           self._current_operation = operation_mode
 
         self.send_ir()

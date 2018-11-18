@@ -1,6 +1,6 @@
 #!/bin/bash
 
-lckdo -w /tmp/broadlink broadlink_cli --device '@/usr/share/broadlink/RoombaRM2' --send \
+lckdo -w /tmp/broadlink broadlink_cli --device '@/usr/share/broadlink/FireplaceRM2' --send \
 b2071c000a0f191a0a0e1b00018d0a190a190a0e1a190a190b190a190a190a1a000000000000000000000000&
 
 

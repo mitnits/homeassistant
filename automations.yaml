@@ -1,13 +1,14 @@
 - id: parking_light_on_at_sunset
-  alias: Parking light on at sunset  
+  alias: Parking light on at sunset
   trigger:
+  - event: sunset
+    offset: -00:45:00
     platform: sun
-    event: sunset
-    offset: "-00:45:00"
   action:
-    service: light.turn_on
+  - data:
+      entity_id: light.parking_light
     entity_id: light.parking_light
-  
+    service: light.turn_on
 - id: outside_lights_off_at_night
   alias: Outside Lights Off
   trigger:
@@ -33,7 +34,6 @@
   - service: light.turn_off
     data:
       entity_id: light.parking_light
-
 - id: darken_the_room_when_kodi_plays
   alias: Turn off kitchen lights when Kodi is playing
   trigger:
@@ -44,25 +44,28 @@
   - condition: state
     entity_id: sun.sun
     state: below_horizon
+  - condition: state
+    entity_id: binary_sensor.motion_sensor_158d0001e1876f
+    state: 'off'
+    for: 00:00:05
   action:
+  - data:
+      entity_id: light.dining_table_light
+    service: switch.turn_on
   - data:
       entity_id: scene.kitchen_off
     service: scene.turn_on
   - data:
       entity_id: switch.living_room_off
     service: scene.turn_on
-  - data:
-      entity_id: light.dining_table_light
-    service: switch.turn_on
-  - delay: '00:01:00'
+  - delay: 00:00:35
   - data:
       entity_id: cover.kitchen_blinds
     service: cover.close_cover
-
-- id: 'toilet_light_on'
+- id: toilet_light_on
   alias: Toilet Light On
   trigger:
-  - entity_id: binary_sensor.motion_sensor_158d000244e28d
+  - entity_id: binary_sensor.motion_sensor_158d00024270a6
     from: 'off'
     platform: state
     to: 'on'
@@ -71,93 +74,222 @@
   - data:
       entity_id: light.toilet_light
     service: light.turn_on
-
-- id: 'toilet_light_off'
+- id: toilet_light_off
   alias: Toilet Light Off
   trigger:
-  - entity_id: binary_sensor.motion_sensor_158d000244e28d
+  - entity_id: binary_sensor.motion_sensor_158d00024270a6
     from: 'on'
     to: 'off'
-    for: '00:05:00'
+    for: 00:30:00
     platform: state
   condition: []
   action:
   - data:
       entity_id: light.toilet_light
     service: light.turn_off
-
-- id: 'sync_tamir_ac_state_off'
-  alias: 'Sync Tamir AC state to off'
+- id: sync_tamir_ac_state_off
+  alias: Sync Tamir AC state to off
   trigger:
   - entity_id: sensor.tamir_ac_power
     below: 10
-    for: '00:00:30'
+    for: 00:00:30
     platform: numeric_state
   condition: []
   action:
   - data:
       entity_id: switch.tamir_ac
     service: switch.turn_off
-
-- id: 'sync_tamir_ac_state_on'
-  alias: 'Sync Tamir AC state to on'
+- id: sync_tamir_ac_state_on
+  alias: Sync Tamir AC state to on
   trigger:
   - entity_id: sensor.tamir_ac_power
     above: 10
-    for: '00:00:30'
+    for: 00:00:10
     platform: numeric_state
   condition: []
   action:
   - data:
       entity_id: switch.tamir_ac
     service: switch.turn_on
-
-- id: 'sync_girls_ac_state_off'
-  alias: 'Sync Girls AC state to off'
+- id: sync_girls_ac_state_off
+  alias: Sync Girls AC state to off
   trigger:
   - entity_id: sensor.girls_ac_power
     below: 10
-    for: '00:00:30'
+    for: 00:00:10
     platform: numeric_state
   condition: []
   action:
   - data:
       entity_id: switch.girls_ac
     service: switch.turn_off
-
-- id: 'sync_girls_ac_state_on'
-  alias: 'Sync Girls AC state to on'
+- id: sync_girls_ac_state_on
+  alias: Sync Girls AC state to on
   trigger:
   - entity_id: sensor.girls_ac_power
     above: 10
-    for: '00:00:30'
+    for: 00:00:10
     platform: numeric_state
   condition: []
   action:
   - data:
       entity_id: switch.girls_ac
     service: switch.turn_on
-
-#- id: 'sync_bedroom_ac_state_off'
-#  alias: 'Sync Bedroom AC state to off'
-#  trigger:
-#  - entity_id: sensor.bedroom_ac_power
-#    below: 10
-#    platform: numeric_state
-#  condition: []
-#  action:
-#  - data:
-#      entity_id: switch.bedroom_ac
-#    service: switch.turn_off
-
-#- id: 'sync_bedroom_ac_state_on'
-#  alias: 'Sync Bedroom AC state to on'
-#  trigger:
-#  - entity_id: sensor.bedroom_ac_power
-#    above: 10
-#    platform: numeric_state
-#  condition: []
-#  action:
-#  - data:
-#      entity_id: switch.bedroom_ac
-#    service: switch.turn_on
+- id: sync_bedroom_ac_state_off
+  alias: Sync Bedroom AC state to off
+  trigger:
+  - entity_id: sensor.bedroom_ac_power
+    below: 10
+    platform: numeric_state
+  condition: []
+  action:
+  - data:
+      entity_id: switch.bedroom_ac
+    service: switch.turn_off
+- id: sync_bedroom_ac_state_on
+  alias: Sync Bedroom AC state to on
+  trigger:
+  - entity_id: sensor.bedroom_ac_power
+    above: 10
+    platform: numeric_state
+  condition: []
+  action:
+  - data:
+      entity_id: switch.bedroom_ac
+    service: switch.turn_on
+- id: '1539154185148'
+  alias: Wake UP
+  trigger:
+  - at: 06:30
+    platform: time
+  condition: []
+  action:
+  - service: media_player.media_play
+    data:
+      entity_id: media_player.googlehome9043
+      media_content_id: https://actions.google.com/sounds/v1/alarms/phone_alerts_and_rings.ogg
+      media_content_type: audio/mp3
+- id: kitchen_lights_on_in_the_morning
+  alias: Kitchen Lights On In The Morning
+  trigger:
+  - entity_id: binary_sensor.motion_sensor_158d0001e1876f
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - after: 05:30
+    before: 07:00
+    condition: time
+  action:
+  - data:
+      entity_id: scene.kitchen_on
+    service: scene.turn_on
+- id: '1540815898111'
+  alias: Run Roomba on weekdays
+  trigger:
+  - at: '11:00'
+    platform: time
+  condition:
+  - condition: time
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+  action:
+  - data:
+      entity_id: switch.roomba
+    service: switch.turn_on
+- id: tamir_came_home
+  alias: Tamir Came Home
+  trigger:
+  - entity_id: binary_sensor.tamir_home
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      message: Tamir came home
+    service: notify.notify_mitnits
+- id: tamir_went_out
+  alias: Tamir Went Out
+  trigger:
+  - entity_id: binary_sensor.tamir_home
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      message: Tamir went out
+    service: notify.notify_mitnits
+- id: mika_came_home
+  alias: Mika Came Home
+  trigger:
+  - entity_id: binary_sensor.mika_home
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      message: Mika came home
+    service: notify.notify_mitnits
+- id: mika_went_out
+  alias: Mika Went Out
+  trigger:
+  - entity_id: binary_sensor.mika_home
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      message: Mika went out
+    service: notify.notify_mitnits
+- id: dina_came_home
+  alias: Dina Came Home
+  trigger:
+  - entity_id: binary_sensor.dina_home
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      message: Dina came home
+    service: notify.notify_mitnits
+- id: dina_went_out
+  alias: Dina Went Out
+  trigger:
+  - entity_id: binary_sensor.dina_home
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      message: Dina went out
+    service: notify.notify_mitnits
+- id: blanket_on_at_19_00
+  alias: blanket on at 19:00
+  trigger:
+  - at: '19:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.blanket
+    service: switch.turn_on
+- id: blanket_off_at_19_00
+  alias: blanket off at 19:00
+  trigger:
+  - at: '23:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.blanket
+    service: switch.turn_off

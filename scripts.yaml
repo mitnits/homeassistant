@@ -3,11 +3,11 @@ open_blinds:
   - data:
       entity_id: cover.kitchen_blinds
     service: cover.open_cover
-  - delay: 00:00:10
+  - delay: 00:00:05
   - data:
       entity_id: cover.street_blinds
     service: cover.open_cover
-  - delay: 00:00:10
+  - delay: 00:00:05
   - data:
       entity_id: cover.garden_blinds
     service: cover.open_cover
@@ -16,11 +16,75 @@ close_blinds:
   - data:
       entity_id: cover.kitchen_blinds
     service: cover.close_cover
-  - delay: 00:00:10
+  - delay: 00:00:05
   - data:
       entity_id: cover.street_blinds
     service: cover.close_cover
-  - delay: 00:00:10
+  - delay: 00:00:05
   - data:
       entity_id: cover.garden_blinds
     service: cover.close_cover
+
+
+lg_tv_yes:
+  sequence:
+  - service: switch.broadlink_send_packet_192_168_0_112
+    data:
+      packet:
+        - 'JgBWAAABJpITEhMSEzcTEhMSExETEhMSEzcTNxMSEzcTNxM3EzcTNxMSExETNxM3ExETERM3EzcTNxM3ExETERM3EzcTERMSEwAFNwABJkkTAAxiAAEmSROSDQU='
+lg_tv_kodi:
+  sequence:
+  - service: switch.broadlink_send_packet_192_168_0_112
+    data:
+      packet:
+        - 'JgBWAAABJpITEhMSEzcTEhMSExETEhMSEzcTNxMSEzcTNxM3EzcTNxMSEzcTNxM3ExETEhM3EzcTNxMSExETERM3EzcTERMSEwAFNwABJkkTAAxiAAEmSROSDQU='
+lg_tv_volume_up:
+  sequence:
+  - service: switch.broadlink_send_packet_192_168_0_112
+    data:
+      packet:
+        - 'JghQAAABJJQRExEUETgRFBEUEBQRFBETEzcROBEUETgROBE5EDkROBEUETgRFBETERQRFBAUERQROBEUETgROBE5EDkROBE4EQAFGAABJEwQAA0FAAAAAAAAAAA='
+lg_tv_volume_down:
+  sequence:
+  - service: switch.broadlink_send_packet_192_168_0_112
+    data:
+      packet:
+        - 'JghQAAABJJQRFBETETkQFBEUERMRFBEUETgROBEUETgROBE5ETgROBE5ETgRFBAUERQRExEUERQRExEUETgUNRE5ETgROBE5EQAFGAABI0wRAA0FAAAAAAAAAAA='
+lg_tv_volume_mute:
+  sequence:
+  - service: switch.broadlink_send_packet_192_168_0_112
+    data:
+      packet:
+        - 'JgBQAAABKJMSEhISEjcSEhISEhISEhISEjcSNxISEjcSNxI3EjcSNxI3EhISEhI3EhISEhISEhISEhI3EjcSEhI3EjcSNxI3EgAFGgABKEoSAAxWDQUAAAAAAAA='
+
+bedroom_tv_yes:
+  sequence:
+  - service: switch.broadlink_send_packet_192_168_0_122
+    data:
+      packet:
+        - 'JgBGAJSUEjcSNxI3EhISEhISEhISEhI3EjcSNxISEhISEhISEhISEhI3EjcSNxI3EjcSEhI3EjcSEhISEhISEhISEjcSEhIABaQNBQ=='
+bedroom_tv_kodi:
+  sequence:
+  - service: switch.broadlink_send_packet_192_168_0_122
+    data:
+      packet:
+        - 'JgBGAJSUEjcSNxI3EhISEhISEhISEhI3EjcSNxISEhISEhISEhISEhI3EhISEhISEhISNxI3EjcSEhI3EjcSNxI3EhISEhIABaQNBQ=='
+bedroom_tv_volume_up:
+  sequence:
+  - service: switch.broadlink_send_packet_192_168_0_122
+    data:
+      packet:
+        - 'JgBGAJKVETkRORA6ERQRFBAVEBUQFRA7EDkROhAUERUQFRAUEBYQOhA6EDoPFhAVEBUQFQ8WEBUPFhAVEDoQOhA6EDoQOg8ADQUAAA=='
+bedroom_tv_volume_down:
+  sequence:
+  - service: switch.broadlink_send_packet_192_168_0_122
+    data:
+      packet:
+        - 'JgBGAJKVEDoSOBE5EBUQFREUERQRFBA6EDoROREUEBURFBEUEBUQOhE5ERQROREUEBURFBAVEBUQFRE5ERQQOhE5EDoQOhAADQUAAA=='
+bedroom_tv_volume_mute:
+  sequence:
+  - service: switch.broadlink_send_packet_192_168_0_122
+    data:
+      packet:
+        - 'JgBGAJGWEDoQOhA6EBUQFREUEBURFBA6ETkRORITERQRFBEUEBURORE5ETkROREUERQTEhEUEBYPFhAVEBUQOg87EDoQOg8ADQUAAA=='
+  

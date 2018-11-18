@@ -5,13 +5,6 @@
 
 - platform: template
   switches:
-    bedroom_tv:
-      friendly_name: 'Bedroom TV'
-      turn_on: 
-        service: shell_command.bedroom_tv_on
-      turn_off:
-        service: shell_command.bedroom_tv_off
-      value_template: "{{ is_state('binary_sensor.bedroom_tv', 'on') }}"
     gate_open:
       friendly_name: 'Driveway Gate'
       value_template: "false"
@@ -24,80 +17,70 @@
       friendly_name: 'LG TV Volume+'
       value_template: "false"
       turn_on:
-        service: switch.turn_on
-        entity_id: switch.lg_tv_volume_up
+        service: script.lg_tv_volume_up
       turn_off:
       icon_template: mdi:volume-high
     lg_tv_turn_volume_down:
       friendly_name: 'LG TV Volume-'
       value_template: "false"
       turn_on:
-        service: switch.turn_on
-        entity_id: switch.lg_tv_volume_down
+        service: script.lg_tv_volume_down
       turn_off:
       icon_template: mdi:volume-medium
     lg_tv_set_volume_mute:
       friendly_name: 'LG TV Mute'
       value_template: "false"
       turn_on:
-        service: switch.turn_on
-        entity_id: switch.lg_tv_volume_mute
+        service: script.lg_tv_volume_mute
       turn_off:
       icon_template: mdi:volume-off        
     lg_tv_select_yes:
       friendly_name: 'LG TV Select Yes'
       value_template: "false"
       turn_on:
-        service: switch.turn_on
-        entity_id: switch.lg_tv_yes
+        service: script.lg_tv_yes
       turn_off:
       icon_template: mdi:satellite-variant
     lg_tv_select_kodi:
       friendly_name: 'LG TV Select KODI'
       value_template: "false"
       turn_on:
-        service: switch.turn_on
-        entity_id: switch.lg_tv_kodi
+        service: script.lg_tv_kodi
       turn_off:
       icon_template: mdi:television-guide
     bedroom_tv_turn_volume_up:
       friendly_name: 'Bedroom TV Volume+'
       value_template: "false"
       turn_on:
-        service: switch.turn_on
-        entity_id: switch.bedroom_tv_volume_up
+        service: script.bedroom_tv_volume_up
       turn_off:
       icon_template: mdi:volume-high
     bedroom_tv_turn_volume_down:
       friendly_name: 'Bedroom TV Volume-'
       value_template: "false"
       turn_on:
-        service: switch.turn_on
-        entity_id: switch.bedroom_tv_volume_down
+        service: script.bedroom_tv_volume_down
       turn_off:
       icon_template: mdi:volume-medium
     bedroom_tv_set_volume_mute:
       friendly_name: 'Bedroom TV Mute'
       value_template: "false"
       turn_on:
-        service: switch.turn_on
-        entity_id: switch.bedroom_tv_volume_mute
+        service: script.bedroom_tv_volume_mute
       turn_off:
       icon_template: mdi:volume-off
     bedroom_tv_select_yes:
       friendly_name: 'Bedroom TV Select Yes'
       value_template: "false"
       turn_on:
-        service: switch.turn_on
-        entity_id: switch.bedroom_tv_yes
+        service: script.bedroom_tv_yes
       turn_off:
       icon_template: mdi:satellite-variant
     bedroom_tv_select_kodi:
       friendly_name: 'Bedroom TV Select KODI'
       value_template: "false"
       turn_on:
-        service: switch.turn_on
-        entity_id: switch.bedroom_tv_kodi
+        service: script.bedroom_tv_kodi
       turn_off:
       icon_template: mdi:television-guide
     fireplace:
@@ -132,17 +115,18 @@
         service: climate.turn_off
         entity_id: climate.bedroom_ac
       icon_template: >-
-        {% if is_state('climate.bedroom_ac', 'cool') %}
-          mdi:snowflake
-        {% elif is_state('climate.bedroom_ac', 'heat') %}
-          mdi:white-balance-sunny
-        {% else %}
+        {% if is_state('climate.bedroom_ac', 'off') %}
           mdi:checkbox-blank-circle-outline
+        {% elif is_state_attr('climate.bedroom_ac', 'operation_mode', 'cool') %}
+          mdi:snowflake
+        {% elif is_state_attr('climate.bedroom_ac', 'operation_mode', 'heat') %}
+          mdi:white-balance-sunny
         {% endif %}
-
+  
     girls_ac:
       friendly_name: 'Girls CC'
-      value_template: "{{ not is_state('climate.girls_ac', 'off') }}"
+      value_template: >
+          {{ states('sensor.girls_ac_power') | float > 10 }}
       turn_on:
         service: climate.turn_on
         entity_id: climate.girls_ac
@@ -150,17 +134,18 @@
         service: climate.turn_off
         entity_id: climate.girls_ac
       icon_template: >-
-        {% if is_state('climate.girls_ac', 'cool') %}
-          mdi:snowflake
-        {% elif is_state('climate.girls_ac', 'heat') %}
-          mdi:white-balance-sunny
-        {% else %}
+        {% if is_state('climate.girls_ac', 'off') %}
           mdi:checkbox-blank-circle-outline
+        {% elif is_state_attr('climate.girls_ac', 'operation_mode', 'cool') %}
+          mdi:snowflake
+        {% elif is_state_attr('climate.girls_ac', 'operation_mode', 'heat') %}
+          mdi:white-balance-sunny
         {% endif %}
 
     tamir_ac:
       friendly_name: 'Tamir CC'
-      value_template: "{{ not is_state('climate.tamir_ac', 'off') }}"
+      value_template: >
+        {{ states('sensor.tamir_ac_power') | float > 10 }}
       turn_on:
         service: climate.turn_on
         entity_id: climate.tamir_ac
@@ -168,12 +153,12 @@
         service: climate.turn_off
         entity_id: climate.tamir_ac
       icon_template: >-
-        {% if is_state('climate.tamir_ac', 'cool') %}
-          mdi:snowflake
-        {% elif is_state('climate.tamir_ac', 'heat') %}
-          mdi:white-balance-sunny
-        {% else %}
+        {% if is_state('climate.tamir_ac', 'off') %}
           mdi:checkbox-blank-circle-outline
+        {% elif is_state_attr('climate.tamir_ac', 'operation_mode', 'cool') %}
+          mdi:snowflake
+        {% elif is_state_attr('climate.tamir_ac', 'operation_mode', 'heat') %}
+          mdi:white-balance-sunny
         {% endif %}
 
     downstairs_ac:
@@ -186,14 +171,13 @@
         service: climate.turn_off
         entity_id: climate.ac
       icon_template: >-
-        {% if is_state('climate.ac', 'cool') %}
+        {% if is_state('climate.ac', 'off') %}
+          mdi:checkbox-blank-circle-outline
+        {% elif is_state_attr('climate.ac', 'operation_mode', 'cool') %}
           mdi:snowflake
-        {% elif is_state('climate.ac', 'heat') %}
+        {% elif is_state_attr('climate.ac', 'operation_mode', 'heat') %}
           mdi:white-balance-sunny
-        {% else %}
-          mdi:checkbox-blank-circle-outline  
         {% endif %}
-
 
 - platform: broadlink
   friendly_name: 'Bedroom RM2'
@@ -201,27 +185,22 @@
   mac: '34:EA:34:C7:31:F9'
   timeout: 15
   type: rm2_pro_plus2
-  switches: 
-    bedroom_tv_yes:
-      friendly_name: 'BEDROOM TV YES'
-      command_on: 'JgBGAJSUEjcSNxI3EhISEhISEhISEhI3EjcSNxISEhISEhISEhISEhI3EjcSNxI3EjcSEhI3EjcSEhISEhISEhISEjcSEhIABaQNBQ=='
-    bedroom_tv_kodi:
-      friendly_name: 'BEDROOM TV KODI'
-      command_on: 'JgBGAJSUEjcSNxI3EhISEhISEhISEhI3EjcSNxISEhISEhISEhISEhI3EhISEhISEhISNxI3EjcSEhI3EjcSNxI3EhISEhIABaQNBQ=='
-    bedroom_tv_volume_up:
-      friendly_name: 'BEDROOM TV VOLUME UP'
-      command_on: 'JgBGAJKVETkRORA6ERQRFBAVEBUQFRA7EDkROhAUERUQFRAUEBYQOhA6EDoPFhAVEBUQFQ8WEBUPFhAVEDoQOhA6EDoQOg8ADQUAAA=='
-    bedroom_tv_volume_down:
-      friendly_name: 'BEDROOM TV VOLUME DOWN'
-      command_on: 'JgBGAJKVEDoSOBE5EBUQFREUERQRFBA6EDoROREUEBURFBEUEBUQOhE5ERQROREUEBURFBAVEBUQFRE5ERQQOhE5EDoQOhAADQUAAA=='
-    bedroom_tv_volume_mute:
-      friendly_name: 'BEDROOM TV MUTE'
-      command_on: 'JgBGAJGWEDoQOhA6EBUQFREUEBURFBA6ETkRORITERQRFBEUEBURORE5ETkROREUERQTEhEUEBYPFhAVEBUQOg87EDoQOg8ADQUAAA=='
+  switches:
+    bedroom_tv:
+      friendly_name: 'Bedroom TV'
+      command_on:  'JgBGAJSUEjcSNxI3EhISEhISEhISEhI3EjcSNxISEhISEhISEhISNxISEhISNxI3EhISEhI3EhISNxI3EhISEhI3EjcSEhIABaQNBQ=='
+      command_off: 'JgBGAJSUEjcSNxI3EhISEhISEhISEhI3EjcSNxISEhISEhISEhISEhISEhISNxI3EhISEhI3EjcSNxI3EhISEhI3EjcSEhIABaQNBQ=='
+
+- platform: broadlink
+  friendly_name: 'Girls RMMINI'
+  host: 192.168.0.125
+  mac: '78:0F:77:18:41:BB'  
+  timeout: 20
 
 - platform: broadlink
   friendly_name: 'Roomba RMPRO'
   host: 192.168.0.123
-  mac: '34:EA:34:43:2A:BE'
+  mac: '78:0F:77:18:44:6D'
   timeout: 15
 
 - platform: broadlink
@@ -229,22 +208,6 @@
   host: 192.168.0.112
   mac: '34:EA:34:42:A9:6F'
   timeout: 15
-  switches: 
-    lg_tv_yes:
-      friendly_name: 'LG TV YES'
-      command_on: 'JgBWAAABJpITEhMSEzcTEhMSExETEhMSEzcTNxMSEzcTNxM3EzcTNxMSExETNxM3ExETERM3EzcTNxM3ExETERM3EzcTERMSEwAFNwABJkkTAAxiAAEmSROSDQU='
-    lg_tv_kodi:
-      friendly_name: 'LG TV KODI'
-      command_on: 'JgBWAAABJpITEhMSEzcTEhMSExETEhMSEzcTNxMSEzcTNxM3EzcTNxMSEzcTNxM3ExETEhM3EzcTNxMSExETERM3EzcTERMSEwAFNwABJkkTAAxiAAEmSROSDQU='
-    lg_tv_volume_up:
-      friendly_name: 'LG TV VOLUME UP'
-      command_on: 'JghQAAABJJQRExEUETgRFBEUEBQRFBETEzcROBEUETgROBE5EDkROBEUETgRFBETERQRFBAUERQROBEUETgROBE5EDkROBE4EQAFGAABJEwQAA0FAAAAAAAAAAA='
-    lg_tv_volume_down:
-      friendly_name: 'LG TV VOLUME DOWN'
-      command_on: 'JghQAAABJJQRFBETETkQFBEUERMRFBEUETgROBEUETgROBE5ETgROBE5ETgRFBAUERQRExEUERQRExEUETgUNRE5ETgROBE5EQAFGAABI0wRAA0FAAAAAAAAAAA='
-    lg_tv_volume_mute:
-      friendly_name: 'LG TV VOLUME MUTE'
-      command_on: 'JgBQAAABKJMSEhISEjcSEhISEhISEhISEjcSNxISEjcSNxI3EjcSNxI3EhISEhI3EhISEhISEhISEhI3EjcSEhI3EjcSNxI3EgAFGgABKEoSAAxWDQUAAAAAAAA='
 
 - platform: broadlink
   friendly_name: 'Fireplace RM2PRO'
@@ -257,13 +220,14 @@
       command_on: 'sigwAAsUFQoVCgsUFQoWCgwUDBQMFBUKFQoVChUKFQoLFBYKFgoWChUKCxQLFBUKFQAECwAAAAAAAAAA'
       command_off: 'showAAsUFQoVCgsUFQoVCgsVCxULFBUKFgoVChUKFQoLFBUKFQoVChUKCxQVChUKFQAECgAAAAAAAAAA'
 
-- platform: broadlink
-  friendly_name: 'Blanket'
-  host: 192.168.0.148
-  mac: '34:EA:34:B5:8D:90'
-  type: sp2
-  timeout: 15
-  switches:
-    blanket:
-      friendly_name: 'Blanket'
-
+- platform: mqtt
+  name: "blanket"
+  state_topic: "stat/blanket/POWER"
+  command_topic: "cmnd/blanket/POWER"
+  availability_topic: "tele/blanket/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true

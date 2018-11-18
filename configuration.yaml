@@ -55,12 +55,7 @@ sun:
 
 sensor: !include sensors.yaml
 
-binary_sensor:
-  - platform: ping
-    name: bedroom_tv
-    host: 192.168.0.131
-    count: 2
-    scan_interval: 15
+binary_sensor: !include binary_sensors.yaml
   
 cover: !include covers.yaml
 
@@ -70,19 +65,99 @@ switch: !include switches.yaml
 tts:
   - platform: google
 
+homekit:
+  filter:
+    include_entities:
+      # Temperature
+      - climate.ac
+      - climate.bedroom_ac
+      # Aircon switches
+      - switch.tamir_ac
+      - switch.girls_ac
+      - switch.downstairs_ac
+      - switch.bedroom_ac
+      # Misc
+      - switch.fireplace
+      - switch.blanket
+      - switch.gate_open
+      # Televisions
+      - switch.lg_tv
+      - switch.bedroom_tv
+      # Scripts/scenes
+      - script.open_blinds
+      - script.close_blinds
+      - script.lg_tv_volume_down
+      - script.lg_tv_volume_up
+      - srcipt.lg_tv_volume_mute
+      - switch.lg_tv_set_volume_mute
+      - scene.kitchen_on
+      - scene.kitchen_off
+      - scene.living_room_on
+      - scene.living_room_off  
+    include_domains:
+      - light
+      - cover
+      - scene
+    exclude_entities:
+      - light.parking_light
+      - light.garden_spots
+      - light.left_spot_rail
+      - light.right_spot_rail
+      - light.gateway_light_7c49eb1a4da1
+      - light.entrance_light
+    
 # Cloud
 cloud:
   google_actions:
     filter:
+      include_entities:
+        - climate.girls_ac
+        - switch.girls_ac
+        - switch.tamir_ac  
+        - climate.tamir_ac
+        - light.girls_light
+        - light.tamir_light
+        - switch.gate_open
+  alexa:
+    filter:
+      include_entities:
+        # Temperature
+        - climate.ac
+        - climate.bedroom_ac
+        # Aircon switches
+        - switch.tamir_ac
+        - switch.girls_ac
+        - switch.downstairs_ac
+        - switch.bedroom_ac
+        # Misc
+        - switch.fireplace
+        - switch.blanket
+        - switch.gate_open
+        # Televisions
+        - switch.lg_tv
+        - switch.bedroom_tv
+        # Scripts/scenes
+        - script.open_blinds
+        - script.close_blinds
+        - script.lg_tv_volume_down
+        - script.lg_tv_volume_up
+        - srcipt.lg_tv_volume_mute
+        - switch.lg_tv_set_volume_mute
+        - scene.kitchen_on
+        - scene.kitchen_off
+        - scene.living_room_on
+        - scene.living_room_off  
       include_domains:
-        - scene      
-        - switch
-        - climate
-        - group
         - light
         - cover
-        - media_player
-        - script
+        - scene
+      exclude_entities:
+        - light.parking_light
+        - light.garden_spots
+        - light.left_spot_rail
+        - light.right_spot_rail
+        - light.gateway_light_7c49eb1a4da1
+        - light.entrance_light
 
 group: !include groups.yaml
 automation: !include automations.yaml
@@ -118,8 +193,19 @@ mqtt:
 xiaomi_aqara:
   gateways:
     - mac: 7C:49:EB:1A:4D:A1
-      host: 192.168.0.111
+      host: 192.168.0.108
       key: i2ls89s1193mivo6
 
 
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api_key
+    allowed_chat_ids:
+      - 558923307
+
+# Example configuration.yaml entry for the notifier
+notify:
+  - name: notify_mitnits
+    platform: telegram
+    chat_id: 558923307
 
