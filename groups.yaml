@@ -1,13 +1,3 @@
-presence:
-  name: Presence
-  control: hidden
-  entities:
-    - binary_sensor.roman_home
-    - binary_sensor.dina_home
-    - binary_sensor.tamir_home
-    - binary_sensor.lia_home
-    - binary_sensor.mika_home
-
 living_room:
   name: Living Room
   control: hidden
@@ -15,7 +5,7 @@ living_room:
     - light.living_room_spots
     - light.led_bar
     - switch.lg_tv
-    - binary_sensor.door_window_sensor_158d00028b5b92
+    - binary_sensor.0x00158d00028b5b92_contact
     - cover.garden_blinds
     - climate.ac
     - switch.downstairs_ac
@@ -29,7 +19,8 @@ kitchen:
     - light.kitchen_chandelier
     - light.kitchen_led_bar
     - light.kitchen_spots
-    - binary_sensor.door_window_sensor_158d00027b5b86 
+    - binary_sensor.0x00158d00028b6d83_contact
+    - binary_sensor.0x00158d00027b5b86_contact
     - cover.kitchen_blinds
 
 dining:
@@ -39,7 +30,8 @@ dining:
     - light.dining_table_light
     - light.entrance_light
     - switch.roomba
-    - binary_sensor.door_window_sensor_158d00027b3558
+    - binary_sensor.0x00158d00028b6eee_contact  
+    - binary_sensor.0x00158d00027b3558_contact
     - cover.street_blinds
     
 bedroom:
@@ -95,4 +87,18 @@ outdoors_lights:
     - light.garden_spots
     - light.entrance_light
     - light.parking_light    
+
+
+cable_modem:
+  name: Cable modem
+  control: hidden
+  entities:
+    - sensor.sagem_f_st3284_bytes_received
+    - sensor.sagem_f_st3284_bytes_sent
+    - sensor.sagem_f_st3284_kbyte_sec_received
+    - sensor.sagem_f_st3284_kbyte_sec_sent
+    - sensor.sagem_f_st3284_packets_received
+    - sensor.sagem_f_st3284_packets_sent
+    - sensor.sagem_f_st3284_packets_sec_received
+    - sensor.sagem_f_st3284_packets_sec_sent
 

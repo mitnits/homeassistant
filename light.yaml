@@ -88,3 +88,9 @@
       turn_off:
         service: shell_command.girls_off
       friendly_name: 'Girls Light'  
+    white_room_light:
+      turn_on:
+        service: shell_command.white_room_on
+      turn_off:
+        service: shell_command.white_room_off
+      friendly_name: 'White Room Light'  

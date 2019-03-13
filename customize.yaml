@@ -49,6 +49,7 @@ media_player.living_room_kodi:
   friendly_name: Living Room Kodi
 media_player.bedroom_kodi:
   friendly_name: Bedroom Kodi
+  hidden: true
 sensor.bedroom_tv:
   hidden: true
 binary_sensor.bedroom_tv:
@@ -65,8 +66,10 @@ binary_sensor.motion_sensor_158d00024270a6:
   friendly_name: Motion - Toilet
 binary_sensor.door_window_sensor_158d00027b3558:
   friendly_name: Street Blinds Sensor
+  hidden: true
 binary_sensor.door_window_sensor_158d00027b5b86:
   friendly_name: Patio Blinds Sensor
+  hidden: true
 sensor.illumination_7c49eb1a4da1:
   hidden: true
 light.gateway_light_7c49eb1a4da1:
@@ -117,29 +120,89 @@ sensor.tamir_0:
   hidden: true
 sensor.lia_0:
   hidden: true
-sensor.mika_0:
-  hidden: true
+sensor.mika_0: {}
 sensor.roman_0:
   hidden: true
-sensor.dina_0:
-  hidden: true
+sensor.dina_0: {}
 sensor.tamir_1:
   hidden: true
 sensor.lia_1:
   hidden: true
-sensor.mika_1:
-  hidden: true
+sensor.mika_1: {}
 sensor.roman_1:
   hidden: true
-sensor.dina_1:
-  hidden: true
+sensor.dina_1: {}
 sensor.tamir:
   hidden: true
 sensor.lia:
   hidden: true
-sensor.mika:
-  hidden: true
+sensor.mika: {}
 sensor.roman:
   hidden: true
 sensor.dina:
   hidden: true
+binary_sensor.mika_home: {}
+sensor.girls_room_temp: {}
+sensor.tilt_angle_158d0002a4f49e:
+  hidden: true
+sensor.coordination_158d0002a4f49e:
+  hidden: true
+sensor.bed_activity_158d0002a4f49e:
+  hidden: true
+sensor.0x00158d000233e86d_battery:
+  hidden: true
+sensor.0x00158d00024270a6_battery:
+  hidden: true
+binary_sensor.motion_sensor_158d000233e86d:
+  hidden: true
+sensor.0x00158d0001e1876f_battery:
+  hidden: true
+sensor.0x00158d000273c311_humidity:
+  hidden: true
+sensor.0x00158d000273c311_pressure:
+  hidden: true
+sensor.0x00158d000244e28d_battery:
+  hidden: true
+sensor.0x00158d0002b7e9d3_battery:
+  hidden: true
+sensor.illumination_158d0002b7e9d3:
+  hidden: true
+sensor.0x00158d00027b3558_battery:
+  hidden: true
+sensor.0x00158d00028b6eee_battery:
+  hidden: true
+sensor.0x00158d00028b6d83_battery:
+  hidden: true
+binary_sensor.0x00158d00028b6d83_contact: {}
+binary_sensor.door_window_sensor_158d00028b6eee:
+  hidden: true
+binary_sensor.door_window_sensor_158d00028b6d83:
+  hidden: true
+media_player.samsungtv_ue40mu7000:
+  hidden: true
+binary_sensor.0x00158d00024270a6_occupancy:
+  hidden: false
+binary_sensor.0x00158d000244e28d_occupancy:
+  hidden: false
+sensor.0x00158d00027b5b86_battery:
+  hidden: true
+sensor.sagem_f_st3284_bytes_received:
+  hidden: true
+sensor.sagem_f_st3284_bytes_sent:
+  hidden: true
+sensor.sagem_f_st3284_packets_received:
+  hidden: true
+sensor.sagem_f_st3284_packets_sent:
+  hidden: true
+sensor.sagem_f_st3284_packets_sec_received:
+  hidden: true
+sensor.sagem_f_st3284_packets_sec_sent:
+  hidden: true
+sensor.0x00158d00028b5b92_battery:
+  hidden: true
+media_player.googlehome9043:
+  hidden: true
+media_player.livingroomcast:
+  hidden: true
+script.open_door:
+  icon_template: mdi:lock

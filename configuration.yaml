@@ -22,6 +22,9 @@ frontend:
 # Enables configuration UI
 config:
 
+# Enables broadlink SmartIR
+smartir:
+
 http:
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   base_url: hass-io.dyndns-server.com
@@ -131,6 +134,7 @@ cloud:
         - switch.bedroom_ac
         # Misc
         - switch.fireplace
+        - switch.lamp
         - switch.blanket
         - switch.gate_open
         # Televisions
@@ -138,6 +142,7 @@ cloud:
         - switch.bedroom_tv
         # Scripts/scenes
         - script.open_blinds
+        - script.open_door  
         - script.close_blinds
         - script.lg_tv_volume_down
         - script.lg_tv_volume_up
@@ -177,9 +182,14 @@ logger:
   default: info  
 
 camera:
-  - platform: mjpeg
-    mjpeg_url: !secret mjpeg_url
-    name: Living Room Camera
+  - platform: generic
+    name: living_room_camera
+    username: root
+    password: Zubur123
+    authentication: basic
+    still_image_url: https://192.168.0.144/cgi-bin/currentpic.cgi
+    verify_ssl: false
+    scan_interval: 5
 
 scene: !include scenes.yaml
 
@@ -188,15 +198,15 @@ light: !include light.yaml
 shell_command: !include shell_scripts.yaml
 
 mqtt:
+  discovery: true
   broker: 192.168.0.107
-
-xiaomi_aqara:
-  gateways:
-    - mac: 7C:49:EB:1A:4D:A1
-      host: 192.168.0.108
-      key: i2ls89s1193mivo6
-
-
+  birth_message:
+    topic: 'hass/status'
+    payload: 'online'
+  will_message:
+    topic: 'hass/status'
+    payload: 'offline'
+  
 telegram_bot:
   - platform: polling
     api_key: !secret telegram_api_key
@@ -209,3 +219,14 @@ notify:
     platform: telegram
     chat_id: 558923307
 
+person:
+  - name: Roman
+    id: roman
+  - name: Dina
+    id: dina
+  - name: Tamir
+    id: tamir
+  - name: Lia
+    id: lia
+  - name: Mika
+    id: Mika

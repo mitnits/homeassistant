@@ -59,11 +59,16 @@ tamir_off: /home/homeassistant/.homeassistant/shell_scripts/tamir_off
 tamir_on: /home/homeassistant/.homeassistant/shell_scripts/tamir_on
 girls_off: /home/homeassistant/.homeassistant/shell_scripts/girls_off
 girls_on: /home/homeassistant/.homeassistant/shell_scripts/girls_on
-
-toilet___everything_off: /home/homeassistant/.homeassistant/shell_scripts/toilet___everything_off
-toilet___everything_on: /home/homeassistant/.homeassistant/shell_scripts/toilet___everything_on
+white_room_off: /home/homeassistant/.homeassistant/shell_scripts/white_room_off
+white_room_on: /home/homeassistant/.homeassistant/shell_scripts/white_room_on
+toilet_everything_off: /home/homeassistant/.homeassistant/shell_scripts/toilet_everything_off
+toilet_everything_on: /home/homeassistant/.homeassistant/shell_scripts/toilet_everything_on
 toilet_light_off: /home/homeassistant/.homeassistant/shell_scripts/toilet_light_off
 toilet_light_on: /home/homeassistant/.homeassistant/shell_scripts/toilet_light_on
 tv_vol_down: /home/homeassistant/.homeassistant/shell_scripts/tv_vol_down
 tv_vol_mute: /home/homeassistant/.homeassistant/shell_scripts/tv_vol_mute
 tv_vol_up: /home/homeassistant/.homeassistant/shell_scripts/tv_vol_up
+alarm_arm: sudo /home/homeassistant/.homeassistant/shell_scripts/alarm_arm.sh
+alarm_arm_home: sudo /home/homeassistant/.homeassistant/shell_scripts/alarm_arm_home.sh
+alarm_disarm: sudo /home/homeassistant/.homeassistant/shell_scripts/alarm_disarm.sh
+unlock_door: sudo /home/homeassistant/.homeassistant/shell_scripts/unlock_door.py

@@ -13,6 +13,27 @@
       turn_off:
         service: shell_command.gate_open
       icon_template: mdi:car
+    alarm:
+      friendly_name: 'Alarm'
+      value_template: "false"
+      turn_on:
+        service: shell_command.alarm_arm
+      turn_off:
+      icon_template: mdi:alarm-light
+    alarm_home:
+      friendly_name: 'Home Mode Alarm'
+      value_template: "false"
+      turn_on:
+        service: shell_command.alarm_arm_home
+      turn_off:
+      icon_template: mdi:alarm-light
+    alarm_code:
+      friendly_name: 'Punch Alarm Code'
+      value_template: "false"
+      turn_on:
+        service: shell_command.alarm_disarm
+      turn_off:
+      icon_template: mdi:alarm-light
     lg_tv_turn_volume_up:
       friendly_name: 'LG TV Volume+'
       value_template: "false"
@@ -93,17 +114,6 @@
         service: switch.turn_off
         entity_id: switch.fireplace_switch
       icon_template: mdi:fire
-
-    lg_tv:
-      friendly_name: 'LG TV'
-      value_template: "{{ not is_state('media_player.TV', 'off') }}"
-      turn_on:
-        service: media_player.turn_on
-        entity_id: media_player.TV
-      turn_off:
-        service: media_player.turn_off
-        entity_id: media_player.TV
-
 
     bedroom_ac:
       friendly_name: 'Bedroom CC'
@@ -208,7 +218,12 @@
   host: 192.168.0.112
   mac: '34:EA:34:42:A9:6F'
   timeout: 15
-
+  switches:
+    lg_tv:
+      friendly_name: 'LG TV'
+      command_on:  'JgBWAAABJpITEhMSEzcTEhMSExETEhMSEzcTNxMSEzcTNxM3EzcTNxMSExITNxMSExITERM3EzcTNxM3ExITNxM3EzcTERMSEwAFNwABJkkTAAxiAAEmSROSDQU='
+      command_off: 'JgBWAAABJpITEhMSEzcTEhMSExETEhMSEzcTNxMSEzcTNxM3EzcTNxM3ExETNxMSExITERM3EzcTERM3ExITNxM3EzcTERMSEwAFNwABJkkTAAxiAAEmSROSDQU='
+                   
 - platform: broadlink
   friendly_name: 'Fireplace RM2PRO'
   host: 192.168.0.124
@@ -222,6 +237,18 @@
 
 - platform: mqtt
   name: "blanket"
+  state_topic: "stat/blanket/POWER"
+  command_topic: "cmnd/blanket/POWER"
+  availability_topic: "tele/blanket/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+
+- platform: mqtt
+  name: "lamp"
   state_topic: "stat/blanket/POWER"
   command_topic: "cmnd/blanket/POWER"
   availability_topic: "tele/blanket/LWT"
