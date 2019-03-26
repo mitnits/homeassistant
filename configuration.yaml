@@ -22,6 +22,8 @@ frontend:
 # Enables configuration UI
 config:
 
+person:
+
 # Enables broadlink SmartIR
 smartir:
 
@@ -171,6 +173,15 @@ script: !include scripts.yaml
 #device_tracker:
 #  - platform: bluetooth_tracker
 
+# Example configuration.yaml entry
+device_tracker:
+  - platform: ddwrt
+    host: 192.168.0.12
+    username: admin
+    password: password
+  
+ios:
+
 recorder:
   db_url: mysql://homeassistantuser:password@localhost/homeassistant
 
@@ -219,14 +230,4 @@ notify:
     platform: telegram
     chat_id: 558923307
 
-person:
-  - name: Roman
-    id: roman
-  - name: Dina
-    id: dina
-  - name: Tamir
-    id: tamir
-  - name: Lia
-    id: lia
-  - name: Mika
-    id: Mika
+

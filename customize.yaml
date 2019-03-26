@@ -17,7 +17,6 @@ light.left_spot_rail:
   hidden: true
 light.right_spot_rail:
   hidden: true
-switch.blanket: {}
 light.toilet_light: {}
 switch.lg_tv_volume_down:
   hidden: true
@@ -206,3 +205,85 @@ media_player.livingroomcast:
   hidden: true
 script.open_door:
   icon_template: mdi:lock
+switch.blanket:
+  icon_template: mdi:hotel
+device_tracker.f0_79_59_30_47_7d:
+  hidden: true
+device_tracker.a4_da_22_2e_01_1e:
+  hidden: true
+sensor.0x00158d0001e1876f_linkquality:
+  hidden: true
+sensor.0x00158d000233e86d_linkquality:
+  hidden: true
+sensor.0x00158d00024270a6_linkquality:
+  hidden: true
+sensor.0x00158d000273c311_battery:
+  hidden: true
+sensor.0x00158d000273c311_linkquality:
+  hidden: true
+sensor.0x00158d00027b3558_linkquality:
+  hidden: true
+sensor.iphone_battery_level:
+  hidden: true
+sensor.iphone_battery_state:
+  hidden: true
+device_tracker.rm_fireplace:
+  hidden: true
+device_tracker.rm_mini:
+  hidden: true
+device_tracker.rm_roomba:
+  hidden: true
+device_tracker.esp_3afa19:
+  hidden: true
+device_tracker.google_home_mini:
+  hidden: true
+sensor.101_battery_level:
+  hidden: true
+sensor.101_battery_level_2:
+  hidden: true
+sensor.101_battery_state_2:
+  hidden: true
+sensor.101_battery_state:
+  hidden: true
+device_tracker.amazon_livingroom:
+  hidden: true
+device_tracker.dafang:
+  hidden: true
+device_tracker.mitnits_macbookpro1:
+  hidden: true
+device_tracker.printer:
+  hidden: true
+device_tracker.nyry:
+  hidden: true
+device_tracker.amazon_bedroom:
+  hidden: true
+sensor.0x00158d00027b5b86_linkquality:
+  hidden: true
+sensor.0x00158d00028b5b92_linkquality:
+  hidden: true
+sensor.0x00158d00028b6d83_linkquality:
+  hidden: true
+sensor.0x00158d00028b6eee_linkquality:
+  hidden: true
+sensor.0x00158d0002b7e9d3_linkquality:
+  hidden: true
+device_tracker.101_2:
+  friendly_name: Roman-iPhone-dd-wrt
+device_tracker.101:
+  friendly_name: Roman-iPhone-GPS
+device_tracker.mitnits_ec9f03ba_1c24_4639_9588_e5f125578ce3:
+  friendly_name: Dina-OwnTracks
+device_tracker.mitnits_d9b8b04d_54a1_4f92_b3c7_900547ea9433:
+  friendly_name: Roman-OwnTracks
+device_tracker.iphone_2:
+  friendly_name: Dina-iPhone-dd-wrt
+person.mika_2:
+  icon: mdi:account
+person.lia_2:
+  icon: mdi:account
+person.tamir_2:
+  icon: mdi:account
+person.dina_2:
+  icon: mdi:account
+person.roman_2:
+  icon: mdi:account
